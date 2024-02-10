@@ -30,6 +30,6 @@ class Follows extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('follows');
+        Schema::drop('follows');
     }
 }
