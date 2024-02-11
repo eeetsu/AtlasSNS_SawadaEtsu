@@ -38,3 +38,8 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
+
+//ログアウト
+ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+ Auth::logout(); // 認証を解除する
