@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         ['user_id ' => '4',
         'mail' => 'atlas_yon@com',
         'password' => bcrypt('456789')],
-     ]);
+      ]);
     }
 
 }
