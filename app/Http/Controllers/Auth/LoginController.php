@@ -38,7 +38,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
+    // ログアウト
+    public function logout(Request $request) {
+        Auth::logout(); // 認証を解除する
+        return redirect('/login'); // ログアウト後のリダイレクト先を指定する
+    }
     public function login(Request $request){
         if($request->isMethod('post')){
 
