@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
+
+
 class RegisterController extends Controller
 {
     /*
@@ -59,11 +61,14 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
-            User::create([
+            $user = User::create([
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
+
+            // ユーザーをログインさせる
+            Auth::login($user);
 
             return redirect('added');
         }
@@ -71,6 +76,7 @@ class RegisterController extends Controller
     }
 
     public function added(){
-        return view('auth.added');
-    }
+    $user = auth()->user();
+    return view('auth.added', compact('user'));
+   }
 }

@@ -13,21 +13,21 @@
 @endif
 
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/register']) !!}
+{!! Form::open(['url' => '/register', 'method' => 'POST']) !!}
 
 <h2>新規ユーザー登録</h2>
 
 {{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+{{ Form::text('username',null,['class' => 'input', 'name' => 'username']) }}
 
 {{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+{{ Form::text('mail',null,['class' => 'input', 'name' => 'mail']) }}
 
 {{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::text('password',null,['class' => 'input', 'name' => 'password']) }}
 
 {{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+{{ Form::text('password_confirmation',null,['class' => 'input', 'name' => 'password_confirmation']) }}
 
 {{ Form::submit('登録') }}
 
