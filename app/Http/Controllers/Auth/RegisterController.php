@@ -61,22 +61,18 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
-            $user = User::create([
+            User::create([
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
 
-            // ユーザーをログインさせる
-            Auth::login($user);
-
             return redirect('added');
-        }
-        return view('auth.register');
-    }
+            }
+            return view('auth.register');
+            }
 
     public function added(){
-    $user = auth()->user();
-    return view('auth.added', compact('user'));
-   }
+        return view('auth.added');
+    }
 }
