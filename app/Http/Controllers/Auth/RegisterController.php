@@ -41,6 +41,19 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
+            //validateメソッドの追加
+            //UserNameはusersテーブルのusernameの条件を指定
+            $request->validate([
+             'UserName' => 'required|unique:users,username|max:12|min:2',
+            //MailAdressはusersテーブルのmailの条件を指定
+             'MailAdress' => 'required|email|unique:users,mail|max:40|min:5',
+            //Passwordはusersテーブルのpasswordの条件を指定
+            //alpha_numで英数字のみで構成（unique ルールは不要になる）
+             'Password' => 'required|alpha_num|max:20|min:8',
+            //PasswordConfirmはusersテーブルのpassword_confirmationの条件を指定
+            //same:PasswordでPassword 入力欄と一致しているかも確認！
+             'PasswordConfirm' => 'required|alpha_num|max:20|min:8|same:Password',
+              ]);
 
             $username = $request->input('username');
             $mail = $request->input('mail');
