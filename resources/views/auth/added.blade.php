@@ -4,12 +4,16 @@
 
 <div id="clear">
 
-  <p>〇〇さん</p>
-  <p>ようこそ！AtlasSNSへ！</p>
-  <p>ユーザー登録が完了しました。</p>
-  <p>早速ログインをしてみましょう。</p>
+    @if(session('username'))
+        <p class="username">
+            {{ session('username') }}さん
+        </p>
+    @endif
+    <p>ようこそ！AtlasSNSへ！</p>
+    <p>ユーザー登録が完了しました。</p>
+    <p>早速ログインしてみましょう。</p>
 
-  <p class="btn"><a href="/login">ログイン画面へ</a></p>
+    <p class="btn"><a href="/top">ログイン画面へ</a></p>
 </div>
 
 @endsection

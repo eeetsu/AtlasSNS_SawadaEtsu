@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 
@@ -67,12 +68,15 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
-            return redirect('added');
-            }
-            return view('auth.register');
-            }
+             // session('username')に'$username'を代入
+             Session::flash('username', $username);
+             // top画面に遷移（sessionにメッセージが入った状態）
+             return redirect()->route('added');
+        }
+        return view('auth.register');
+    }
 
-    public function added(){
+    public function added(Request $request){
         return view('auth.added');
     }
 }
