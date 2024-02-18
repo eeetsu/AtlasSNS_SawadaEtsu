@@ -33,8 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/top','PostsController@index');
     Route::get('/profile','UsersController@profile');
     Route::get('/search','UsersController@search');
-    Route::get('/follow-list','PostsController@index');
-    Route::get('/follower-list','PostsController@index');
+    Route::get('/follow-list','PostsController@followList');
+    Route::get('/follower-list','PostsController@followerList');
+
 });
 
 // ログインしていないユーザー(gest）がログイン後のページに直接アクセスした場合、

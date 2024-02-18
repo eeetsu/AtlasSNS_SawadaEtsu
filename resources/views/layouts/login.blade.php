@@ -21,12 +21,12 @@
 </head>
 <body>
     <header>
-        <div id = "head">
-        <h1><a><img src="images/atlas.png"></a></h1>
+        <div id="head">
+            <h1><a><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
                     <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
-                <div>
+                </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
@@ -41,15 +41,15 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p> {{ Auth::user()->username }}さん</p>
+                <p>{{ Auth::user()->username }}さん</p>
                 <div>
-                <p>フォロー数</p>
-                <p>{{ count(Auth::user()->followings ?? []) }}名</p>
+                    <p>フォロー数</p>
+                    <p>{{ count(Auth::user()->followings ?? []) }}名</p>
                 </div>
                 <p class="btn"><a href="{{ url('/follow-list') }}">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>{{ count(Auth::user()->followers ?? []) }}名</p>
+                    <p>フォロワー数</p>
+                    <p>{{ count(Auth::user()->followers ?? []) }}名</p>
                 </div>
                 <p class="btn"><a href="{{ url('/follower-list') }}">フォロワーリスト</a></p>
             </div>

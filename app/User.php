@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post;
 
 class User extends Authenticatable
 {
@@ -12,6 +13,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
     protected $fillable = [
         'username', 'mail', 'password',
     ];
@@ -26,13 +31,14 @@ class User extends Authenticatable
     ];
     //リレーション
     public function followings()
-   {
-    return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
-   }
+    {
+    return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
+    }
+
     //リレーション
     public function followers()
-   {
-    return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
-   }
+    {
+    return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+    }
 
 }
