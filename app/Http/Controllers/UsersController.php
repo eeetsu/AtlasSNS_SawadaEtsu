@@ -24,11 +24,17 @@ class UsersController extends Controller
       if(!empty($keyword)){
       $users = User::where('username','like', '%'.$keyword.'%')->where('id', '!=', Auth::user()->id)->get();
       }else{
-            $users = User::where('id', '!=', Auth::user()->id)->get();
-            //検索時、Authユーザーが表示されないようにする
+     //検索時、Authユーザーが表示されないようにする
+      $users = User::where('id', '!=', Auth::user()->id)->get();
+      $authenticatedUser = Auth::user();
+     // 認証されたユーザーが検索結果のユーザーをフォローしているかどうかを確認する
+      $users = $users->map(function ($user) use ($authenticatedUser) {
+      $user->is_followed = $authenticatedUser->followings->contains('id', $user->id);
+            return $user;
+      });
       }
       // 3つ目の処理
       return view('users.search',['users'=>$users, 'keyword'=>$keyword]);
-    }
-
+      }
 }
+?>
