@@ -32,6 +32,8 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/top','PostsController@index');
     Route::post('/posts','PostsController@store')->name('posts.store');
+    Route::post('/posts/edit','PostsController@edit')->name('posts.edit');
+    Route::put('/posts/update/{post_id}','PostsController@update')->name('posts.update');
     Route::get('/profile','UsersController@profile');
     Route::get('/search','UsersController@search');
     Route::get('/follow-list','PostsController@followList');

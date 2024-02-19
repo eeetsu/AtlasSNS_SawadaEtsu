@@ -12,8 +12,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-    if (Auth::check()) {
-        return view('posts.index');
+     if (Auth::check()) {
+          $posts = Post::where('user_id', Auth::user()->id)->latest()->get();
+          return view('posts.index', compact('posts'));
         } else {
         return redirect()->route('login');
         }
@@ -23,24 +24,35 @@ class PostsController extends Controller
         $request->validate([
             'post' => 'required|min:1|max:150',
         ]);
-
         $post = new Post();
         $post->user_id = Auth::user()->id;
         $post->post = $request->post;
         $post->save();
-
+        return redirect('/top');
+    }
+    public function edit(Request $request)
+    {
+        $post = Post::find($request->post_id);
+        return view('posts.index', ['post' => $post]);
+    }
+    public function update(Request $request, $post_id)
+    {
+        $request->validate([
+            'post' => 'required|min:1|max:150',
+        ]);
+        $post = Post::find($post_id);
+        $post->post = $request->post;
+        $post->save();
         return redirect('/top');
     }
     public function followList(User $users)
     {
     $follows = User::where('id', '!=', Auth::user()->id)->get();
-
     return view('/follows/followList', compact('follows'));
     }
     public function followerList(User $users)
     {
     $followers = User::where('id', '!=', Auth::user()->id)->get();
-
     return view('/follows/followerList', compact('followers'));
     }
 }
