@@ -30,11 +30,33 @@ class UsersController extends Controller
      // 認証されたユーザーが検索結果のユーザーをフォローしているかどうかを確認する
       $users = $users->map(function ($user) use ($authenticatedUser) {
       $user->is_followed = $authenticatedUser->followings->contains('id', $user->id);
-            return $user;
+      return $user;
       });
       }
       // 3つ目の処理
       return view('users.search',['users'=>$users, 'keyword'=>$keyword]);
+      }
+     // フォロー機能
+    public function follow($id)
+      {
+      $authenticatedUser = Auth::user();
+      $user = User::find($id);
+    // フォローしていない場合のみフォローする
+      if (!$authenticatedUser->followings->contains($user)) {
+          $authenticatedUser->followings()->attach($user);
+      }
+       return redirect()->back();
+      }
+    // フォロー解除機能
+    public function unfollow($id)
+      {
+      $authenticatedUser = Auth::user();
+      $user = User::find($id);
+    // フォローしている場合のみフォロー解除する
+     if ($authenticatedUser->followings->contains($user)) {
+         $authenticatedUser->followings()->detach($user);
+     }
+      return redirect()->back();
       }
 }
 ?>
