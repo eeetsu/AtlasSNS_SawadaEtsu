@@ -31,6 +31,7 @@ Route::middleware(['guest'])->group(function () {
 // ログイン中のページ
 Route::middleware(['auth'])->group(function () {
     Route::get('/top','PostsController@index');
+    Route::post('/posts','PostsController@store')->name('posts.store');
     Route::get('/profile','UsersController@profile');
     Route::get('/search','UsersController@search');
     Route::get('/follow-list','PostsController@followList');
