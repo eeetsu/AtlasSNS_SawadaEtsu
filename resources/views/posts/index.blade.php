@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-
+<div class="container">
 <form method="POST" action="{{ route('posts.store') }}">
     @csrf
     <div>
@@ -12,13 +12,13 @@
     <button type="submit">投稿</button>
 </form>
 
-<!-- 自分の投稿一覧表示 -->
+<!-- ログインユーザーの投稿一覧表示 -->
 @foreach($posts as $post)
     <div>
-        <!-- 投稿者名の表示 -->
-        <p>{{ $post->user->username }}</p>
-        <p>{{ $post->post }}</p>
-        <!-- 編集ボタン -->
+        <!-- 投稿者名、投稿内容の表示 -->
+         <p>{{ $post->user->username }}</p>
+         <p>{{ $post->post }}</p>
+         <!-- 編集ボタン -->
         <form method="POST" action="{{ route('posts.edit') }}">
             @csrf
             <input type="hidden" name="post_id" value="{{ $post->id }}">
@@ -26,5 +26,27 @@
         </form>
     </div>
 @endforeach
+
+<!-- 投稿一覧を表示 -->
+  <div class="follow-list">
+  <div class="follow-icons">
+    @foreach($follows as $follow)
+      <img src="{{ $follow->images }}" alt="follow-icon">
+    @endforeach
+  </div>
+
+  <div class="follow-posts">
+    @foreach($follows as $follow)
+    @foreach($follow->posts()->orderBy('created_at', 'desc')->get() as $post)
+        <div class="post">
+            <h4>{{ $post->post }}</h4>
+            <p>{{ $post->user->username }}</p>
+            <p>投稿日時：{{ $post->created_at }}</p>
+        </div>
+    @endforeach
+@endforeach
+  </div>
+</div>
+</div>
 
 @endsection

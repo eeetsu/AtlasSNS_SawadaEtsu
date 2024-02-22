@@ -27,4 +27,9 @@ class Follow extends Model
     {
         return $this->belongsTo(User::class, 'followed_id');
     }
+    // Followモデルにpostsメソッドを追加
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id', 'followed_id');
+    }
 }

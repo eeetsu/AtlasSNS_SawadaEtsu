@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Follow;
 
 
 class PostsController extends Controller
@@ -13,10 +14,14 @@ class PostsController extends Controller
     public function index()
     {
      if (Auth::check()) {
-          $posts = Post::where('user_id', Auth::user()->id)->latest()->get();
-          return view('posts.index', compact('posts'));
+        //ログインユーザーの投稿をフォローしているユーザーの投稿を取得
+          $posts = Post::whereIn('user_id', [Auth::user()->id])->latest()->get();
+          //Follow::get(); はモデルから呼び出している！
+          //Followモデル（followsテーブル）からレコード情報を取得
+        $follows= Follow::get();
+          return view('posts.index', compact('posts', 'follows'));
         } else {
-        return redirect()->route('login');
+            return redirect()->route('top');
         }
     }
     public function store(Request $request)

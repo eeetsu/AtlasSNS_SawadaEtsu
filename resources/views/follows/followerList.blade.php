@@ -13,8 +13,8 @@
     @foreach($followers as $follower)
     @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)
         <div class="post">
-            <h4>{{ $post->title }}</h4>
-            <p>{{ $post->content }}</p>
+            <h4>{{ $post->post }}</h4>
+            <p>{{ $post->user->username }}</p>
             <p>投稿日時：{{ $post->created_at }}</p>
         </div>
     @endforeach
