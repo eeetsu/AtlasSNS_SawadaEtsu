@@ -9,6 +9,10 @@
         <input type="text" name="keyword" class="form" placeholder="ユーザー名" value="{{ $keyword ?? '' }}">
         <button type="submit" class="btn btn-success">検索ロゴ</button>
     </form>
+    <!-- 検索ワードが空でない場合のみ表示 -->
+    @if (!empty($keyword))
+    <div>検索ワード： {{ $keyword }}</div>
+@endif
 
     <div class="user-icons">
         @foreach($users as $user)

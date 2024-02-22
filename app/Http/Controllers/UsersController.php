@@ -26,7 +26,9 @@ class UsersController extends Controller
       }else{
      //検索時、Authユーザーが表示されないようにする
       $users = User::where('id', '!=', Auth::user()->id)->get();
-      $authenticatedUser = Auth::user();
+      // 検索ワードもViewに渡す
+      return view('users.search', ['users' => $users, 'keyword' => $keyword]);
+      //$authenticatedUser = Auth::user();
      // 認証されたユーザーが検索結果のユーザーをフォローしているかどうかを確認する
       $users = $users->map(function ($user) use ($authenticatedUser) {
       $user->is_followed = $authenticatedUser->followings->contains('id', $user->id);
