@@ -15,10 +15,11 @@ class UsersController extends Controller
         $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
         $follows = Auth::user()->followings()->get();
         return view('users.profile')->with([
-            'user' => Auth::user(),
-            'posts' => $posts,
-            'follows' => $follows,
-            ]);
+          'user' => Auth::user(),
+          'bio' => Auth::user()->bio,
+          'posts' => $posts,
+          'follows' => $follows,
+        ]);
         } else {
         return redirect()->route('profile');
         }

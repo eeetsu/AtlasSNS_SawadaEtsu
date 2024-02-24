@@ -3,13 +3,13 @@
 @section('content')
 <div class="container">
     <!-- ユーザーアイコンの表示 -->
-    <img src="{{ $user->images }}" alt="{{ $user->username }}">
+    <img src="{{ $user->images }}">
 
     <!-- ユーザー名 -->
-    <h2>name  {{ $user->user }}</h2>
+    <h2>name  {{ $user->username }}</h2>
 
     <!-- ユーザーの自己紹介文 -->
-    <p>hoge  {{ $user->introduction }}</p>
+    <h2>bio  {{ $user->bio }}</h2>
 
     <!-- フォロー機能 -->
     @if(Auth::user() && Auth::user()->id !== $user->id)
@@ -33,6 +33,7 @@
         <div class="post">
             <h4>{{ $post->post }}</h4>
             <p>{{ $follow->username }}</p>
+            <h2>{{ $follow->bio }}</h2>
             <p>投稿日時：{{ $post->created_at }}</p>
         </div>
       @endforeach
