@@ -38,7 +38,7 @@ class User extends Authenticatable
     //リレーション
     public function followers()
     {
-    return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
+        return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
     }
 
 }

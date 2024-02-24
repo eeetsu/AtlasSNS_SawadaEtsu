@@ -28,6 +28,10 @@ class FollowsTableSeeder extends Seeder
           'following_id' => '4',
           'followed_id' => '4',
         ],
+        [
+          'following_id' => '5',
+          'followed_id' => '5',
+        ],
       ]);
     }
 

@@ -31,9 +31,9 @@
     @foreach($follows as $follow)
       @foreach($follow->posts()->orderBy('created_at', 'desc')->get() as $post)
         <div class="post">
-            <h4>{{ $post->post }}</h4>
             <p>{{ $follow->username }}</p>
             <h2>{{ $follow->bio }}</h2>
+            <h4>{{ $post->post }}</h4>
             <p>投稿日時：{{ $post->created_at }}</p>
         </div>
       @endforeach

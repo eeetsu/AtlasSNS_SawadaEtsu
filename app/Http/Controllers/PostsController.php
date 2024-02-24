@@ -53,14 +53,32 @@ class PostsController extends Controller
     }
     public function followList(User $users)
     {
-    $follows = User::where('id', '!=', Auth::user()->id)->get();
-
-    return view('/follows/followList', compact('follows'));
-}
+    if (Auth::check()) {
+        $user = Auth::user(); // ログインユーザーを取得
+        $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
+        $follows = Auth::user()->followings()->get();
+        return view('follows.followList')->with([
+          'user' => Auth::user(),
+          'posts' => $posts,
+          'follows' => $follows,
+        ]);
+    } else {
+        return redirect()->route('follow-list');
+    }
+    }
     public function followerList(User $users)
     {
-    $followers = User::where('id', '!=', Auth::user()->id)->get();
-
-    return view('/follows/followerList', compact('followers'));
+    if (Auth::check()) {
+        $user = Auth::user(); // ログインユーザーを取得
+        $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followers()->pluck('following_id'))->latest()->get();
+        $follows = Auth::user()->followers()->get();
+        return view('follows.followerList')->with([
+            'user' => Auth::user(),
+            'posts' => $posts,
+            'follows' => $follows,
+        ]);
+    } else {
+        return redirect()->route('follower-list');
     }
+}
 }

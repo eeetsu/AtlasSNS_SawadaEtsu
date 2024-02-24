@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         [
           'username' => 'Atlas一郎',
           'mail' => 'atlas_ichi@com',
-          'password' => bcrypt('123456'),
+          'password' => bcrypt('12345678'),
           'bio' => 'クリエイターです！よろしく！'
         ],
         [

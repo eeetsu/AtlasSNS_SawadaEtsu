@@ -28,6 +28,10 @@ class PostsTableSeeder extends Seeder
           'user_id' => '4',
           'post' => 'また明日！',
         ],
+        [
+          'user_id' => '5',
+          'post' => 'お腹いっぱいになった！',
+        ],
       ]);
     }
 
