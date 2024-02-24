@@ -14,14 +14,15 @@ class PostsController extends Controller
     public function index()
     {
      if (Auth::check()) {
-        //ログインユーザーの投稿をフォローしているユーザーの投稿を取得
-          $posts = Post::whereIn('user_id', [Auth::user()->id])->latest()->get();
+        // ログインユーザーの投稿とフォローしているユーザーの投稿を取得
+        $posts = Post::whereIn('user_id', [Auth::user()->id])->latest()->get();
           //Follow::get(); はモデルから呼び出している！
           //Followモデル（followsテーブル）からレコード情報を取得
-        $follows= Follow::get();
-          return view('posts.index', compact('posts', 'follows'));
-        } else {
-            return redirect()->route('top');
+        $follows = Follow::get();
+
+        return view('posts.index', compact('posts', 'follows'));
+    } else {
+        return redirect()->route('top');
         }
     }
     public function store(Request $request)
@@ -53,11 +54,13 @@ class PostsController extends Controller
     public function followList(User $users)
     {
     $follows = User::where('id', '!=', Auth::user()->id)->get();
+
     return view('/follows/followList', compact('follows'));
-    }
+}
     public function followerList(User $users)
     {
     $followers = User::where('id', '!=', Auth::user()->id)->get();
+
     return view('/follows/followerList', compact('followers'));
     }
 }

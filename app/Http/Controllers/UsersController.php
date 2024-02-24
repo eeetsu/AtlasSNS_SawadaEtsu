@@ -8,13 +8,20 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function profile()
+    public function profile(User $user)
     {
     if (Auth::check()) {
-        return view('users.profile');
-    } else {
-        return redirect()->route('login');
-    }
+        $user = Auth::user(); // ログインユーザーを取得
+        $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
+        $follows = Auth::user()->followings()->get();
+        return view('users.profile')->with([
+            'user' => Auth::user(),
+            'posts' => $posts,
+            'follows' => $follows,
+            ]);
+        } else {
+        return redirect()->route('profile');
+        }
     }
     public function search(Request $request)    //検索機能
     {
@@ -28,7 +35,7 @@ class UsersController extends Controller
       $users = User::where('id', '!=', Auth::user()->id)->get();
       // 検索ワードもViewに渡す
       return view('users.search', ['users' => $users, 'keyword' => $keyword]);
-      //$authenticatedUser = Auth::user();
+      $authenticatedUser = Auth::user();
      // 認証されたユーザーが検索結果のユーザーをフォローしているかどうかを確認する
       $users = $users->map(function ($user) use ($authenticatedUser) {
       $user->is_followed = $authenticatedUser->followings->contains('id', $user->id);

@@ -12,7 +12,7 @@
     <!-- 検索ワードが空でない場合のみ表示 -->
     @if (!empty($keyword))
     <div>検索ワード： {{ $keyword }}</div>
-@endif
+    @endif
 
     <div class="user-icons">
         @foreach($users as $user)
