@@ -5,7 +5,7 @@
 <div class="follow-list">
   <div class="follow-icons">
     @foreach($follows as $follow)
-      <img src="{{ $follow->images }}" alt="follow-icon">
+     <a href="{{ route('follow.profile', ['user_id' => $follow->id]) }}" class="btn" img src="{{ $follow->images }}" alt="follow-icon"><img src="{{ $follow->images }}" alt="follow-icon"></a>
     @endforeach
   </div>
 

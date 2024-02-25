@@ -18,17 +18,19 @@
         @foreach($users as $user)
             <img src="{{ $user->images }}" alt="user-icon">
             <span>{{ $user->username }}</span>
-            @if($user->is_followed)
-    <form action="/unfollow/{{$user->id}}" method="post">
-        @csrf
-        <button type="submit" class="btn btn-danger">フォロー解除</button>
-    </form>
-@else
-    <form action="/follow/{{$user->id}}" method="post">
-        @csrf
-        <button type="submit" class="btn btn-primary">フォローする</button>
-    </form>
-@endif
+            @if(Auth::user() && Auth::user()->id !== $user->id)
+                @if(Auth::user()->followings->contains('id', $user->id))
+                <form action="{{ route('unfollow', $user->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">フォロー解除</button>
+                </form>
+                @else
+                <form action="{{ route('follow', $user->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">フォローする</button>
+                </form>
+                @endif
+            @endif
         @endforeach
     </div>
 </div>

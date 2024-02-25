@@ -24,6 +24,27 @@ class UsersController extends Controller
         return redirect()->route('profile');
         }
     }
+    public function followProfile($user_id)
+    {
+        $user = User::find($user_id);
+        $posts = $user->posts;
+        return view('users.profile')->with([
+        'user' => $user,
+        'bio' => $user->bio,
+        'posts' => $posts,
+        ]);
+    }
+
+    public function followerProfile($user_id)
+    {
+        $user = User::find($user_id);
+        $posts = $user->posts;
+        return view('users.profile')->with([
+        'user' => $user,
+        'bio' => $user->bio,
+        'posts' => $posts,
+        ]);
+    }
     public function search(Request $request)    //検索機能
     {
      // 1つ目の処理

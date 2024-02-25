@@ -4,7 +4,7 @@
 
 <div class="follower-icons">
     @foreach(Auth::user()->followers as $follower)
-      <img src="{{ $follower->images }}" alt="follower-icon">
+     <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" img src="{{ $follower->images }}" alt="follow-icon"><img src="{{ $follower->images }}" alt="follower-icon"></a>
     @endforeach
 </div>
 

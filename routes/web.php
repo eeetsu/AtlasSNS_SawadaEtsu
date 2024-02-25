@@ -34,12 +34,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/posts','PostsController@store')->name('posts.store');
     Route::post('/posts/edit','PostsController@edit')->name('posts.edit');
     Route::put('/posts/update/{post_id}','PostsController@update')->name('posts.update');
-    Route::get('/profile','UsersController@profile');
+    Route::get('/profile','UsersController@profile')->name('profile');
+    Route::get('/follow/{user_id}','UsersController@followProfile')->name('follow.profile');
+    Route::get('/follower/{user_id}','UsersController@followerProfile')->name('follower.profile');
     Route::get('/search','UsersController@search');
     Route::get('/follow-list','PostsController@followList');
     Route::get('/follower-list','PostsController@followerList');
-    Route::post('/follow/{user_id}','UsersController@follow');
-    Route::post('/unfollow/{user_id}','UsersController@unfollow');
+    Route::post('/follow/{user_id}','UsersController@follow')->name('follow');
+    Route::post('/unfollow/{user_id}','UsersController@unfollow')->name('unfollow');
 });
 
 // ログインしていないユーザー(gest）がログイン後のページに直接アクセスした場合、
