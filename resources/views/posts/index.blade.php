@@ -34,7 +34,7 @@
   </div>
 
   <div class="follow-posts">
-    @foreach($follows as $follow)
+@foreach($follows as $follow)
     @foreach($follow->posts()->orderBy('created_at', 'desc')->get() as $post)
         <div class="post">
             <img src="{{ $follow->images }}" alt="follow-icon">
