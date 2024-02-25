@@ -16,7 +16,7 @@
 
     <div class="user-icons">
         @foreach($users as $user)
-            <img src="{{ $user->images }}" alt="user-icon">
+            <img src="{{ $user->images }}" >
             <span>{{ $user->username }}</span>
             @if(Auth::user() && Auth::user()->id !== $user->id)
                 @if(Auth::user()->followings->contains('id', $user->id))
