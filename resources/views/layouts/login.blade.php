@@ -22,43 +22,68 @@
 <body>
     <header>
         <div id="head">
-            <h1><a><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
+            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <div class="nav-open">
+                    <p>{{ Auth::user()->username }}さん<img src="images/icon1.png"></p>
+                    <nav>
+                      <a href="" class="menu-btn"></a>
+                      <div class="accordion-menu"></div>
+                        <div class="accordion-title js-accordion-title">
+                    </div>
+                    <div class="accordion-container"></div>
+                    <!-- $user->usernameで名前カラムを渡す -->
+                    <!-- アコーディオンメニュー -->
+                    <div class="accordion-content"></div>
+                        <ul>
+                            <li class="accordion-list"><a href="/top">HOME</a></li>
+                            <li class="accordion-list"><a href="/profile">プロフィール編集</a></li>
+                            <li class="accordion-list"><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </nav>
+                    @if(Auth::user()->images=="dawn.png")
+                    <img src="/public/images/icon1.png" class="icon" width="" alt="">
+                    @else
+                    <img src=" {{ asset('storage/'.Auth::user()->images)}}" class="icon" width="70" height="70">
+                    @endif
+            </header>
+            <div id="row">
+                <div id="container">
+                    @yield('content')
+                </div >
+                <div id="side-bar">
+                    <div id="confirm">
+                        <p>{{ Auth::user()->username }}さん</p>
+                        <div>
+                            <p>フォロー数</p>
+                            <p>{{ count(Auth::user()->followings ?? []) }}名</p>
+                        </div>
+                        <p class="btn"><a href="{{ asset('/follow-list') }}">フォローリスト</a></p>
+                        <div>
+                            <p>フォロワー数</p>
+                            <p>{{ count(Auth::user()->followers ?? []) }}名</p>
+                        </div>
+                        <p class="btn"><a href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
+                    </div>
+                    <p class="btn"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
                 </div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
             </div>
-        </div>
-    </header>
-    <div id="row">
-        <div id="container">
-            @yield('content')
-        </div >
-        <div id="side-bar">
-            <div id="confirm">
-                <p>{{ Auth::user()->username }}さん</p>
-                <div>
-                    <p>フォロー数</p>
-                    <p>{{ count(Auth::user()->followings ?? []) }}名</p>
-                </div>
-                <p class="btn"><a href="{{ url('/follow-list') }}">フォローリスト</a></p>
-                <div>
-                    <p>フォロワー数</p>
-                    <p>{{ count(Auth::user()->followers ?? []) }}名</p>
-                </div>
-                <p class="btn"><a href="{{ url('/follower-list') }}">フォロワーリスト</a></p>
-            </div>
-            <p class="btn"><a href="{{ url('/search') }}">ユーザー検索</a></p>
+            <!-- モーダルの表示 -->
+<div id="modal" class="js-modal">
+    <div class="modal-container">
+        <div class="modal-content">
+            <!-- モーダルの中身 -->
+            <textarea name="post" id="post" placeholder="follow-posts" maxlength="150"></textarea>
+            <p>モーダルのコンテンツ</p>
+            <button class="modalClose">閉じる</button>
         </div>
     </div>
-    <footer>
-    </footer>
-    <script src="/public/js/app.js"></script>
-    <script src="/resources/assets/js/app.js"></script>
-</body>
-</html>
+</div>
+            <footer>
+            </footer>
+                <!-- Javascript・jQueryのファイルリンク -->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+            <!-- ↓この記述で繋げる -->
+            <script src="{{ asset('js/script.js') }}"></script>
+            <script src="/public/js/script.js"></script>
+        </body>
+        </html>

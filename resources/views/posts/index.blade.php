@@ -20,8 +20,10 @@
          <p>{{ $post->post }}</p>
          <!-- 編集ボタン -->
         <form method="POST" action="{{ route('posts.edit') }}">
-            @csrf
+        @csrf
             <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="post" value="{{ $post->post }}">
+            <!-- 編集ボタンがクリックされたときに投稿内容をhiddenで送信 -->
             <button type="submit">編集</button>
         </form>
     </div>

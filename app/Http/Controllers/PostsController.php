@@ -13,14 +13,14 @@ class PostsController extends Controller
 {
     public function index()
     {
-     if (Auth::check()) {
+      if (Auth::check()) {
         $user = Auth::user(); // ログインユーザーを取得
         $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
         $follows = Auth::user()->followings()->get();
         return view('posts.index')->with([
-          'user' => Auth::user(),
-          'posts' => $posts,
-          'follows' => $follows,
+            'user' => Auth::user(),
+            'posts' => $posts,
+            'follows' => $follows,
         ]);
     } else {
         return redirect()->route('top');
@@ -39,14 +39,16 @@ class PostsController extends Controller
     }
     public function edit(Request $request)
     {
-        $post = Post::find($request->post_id);
-        return view('posts.index', ['post' => $post]);
+         $post = Post::find($request->post_id);
+         $posts = Post::where('user_id', Auth::id())->get();
+         //モーダル表示用に初期値を設定
+         return view('posts.index', ['post' => $post, 'posts' => $posts,'follows'=>Auth::user()->followings()->get()]);
     }
     public function update(Request $request, $post_id)
     {
-        $request->validate([
-            'post' => 'required|min:1|max:150',
-        ]);
+         $request->validate([
+        'post' => 'required|min:1|max:150',
+    ]);
         $post = Post::find($post_id);
         $post->post = $request->post;
         $post->save();
