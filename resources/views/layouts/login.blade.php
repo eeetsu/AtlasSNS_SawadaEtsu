@@ -71,6 +71,7 @@
 <div id="modal" class="js-modal">
     <div class="modal-container">
         <div class="modal-content">
+            <button class="modalopen" data-target="#modal">編集</button>
             <!-- モーダルの中身 -->
             <textarea name="post" id="post" placeholder="follow-posts" maxlength="150"></textarea>
             <p>モーダルのコンテンツ</p>
