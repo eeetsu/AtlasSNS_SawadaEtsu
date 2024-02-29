@@ -24,25 +24,25 @@
         <div id="head">
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div class="nav-open">
-                    <p>{{ Auth::user()->username }}さん<img src="images/icon1.png"></p>
-                    <nav>
-                    <!-- $user->usernameで名前カラムを渡す -->
+                 <!-- $user->usernameで名前カラムを渡す -->
                     <!-- アコーディオンメニュー -->
+                    <p>{{ Auth::user()->username }}さん</p>
+                    <nav>
                     <div class="accordion-container">
                         <a href="" class="menu-btn"></a>
-                      <div class="accordion-menu"></div>
-                    <div class="accordion-title js-accordion-title">メニュー</div>
-                    <div class="accordion-content">
-                        <ul>
-                        <li><a href="/top">HOME</a></li>
-                        <li><a href="/profile">プロフィール編集</a></li>
-                        <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </nav>
+                        <img src="images/icon1.png">
+                        <div class="accordion-menu">
+                            <ul>
+                                <li><a href="/top">HOME</a></li>
+                                <li><a href="/profile">プロフィール編集</a></li>
+                                <li><a href="/logout">ログアウト</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
                     @if(Auth::user()->images=="dawn.png")
                     <img src="/public/images/icon1.png" class="icon" width="" alt="">
                     @else
-                    <img src=" {{ asset('storage/'.Auth::user()->images)}}" class="icon" width="70" height="70">
                     @endif
             </header>
             <div id="row">
