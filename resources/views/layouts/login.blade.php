@@ -26,18 +26,17 @@
             <div class="nav-open">
                     <p>{{ Auth::user()->username }}さん<img src="images/icon1.png"></p>
                     <nav>
-                      <a href="" class="menu-btn"></a>
-                      <div class="accordion-menu"></div>
-                        <div class="accordion-title js-accordion-title">
-                    </div>
-                    <div class="accordion-container"></div>
                     <!-- $user->usernameで名前カラムを渡す -->
                     <!-- アコーディオンメニュー -->
-                    <div class="accordion-content"></div>
+                    <div class="accordion-container">
+                        <a href="" class="menu-btn"></a>
+                      <div class="accordion-menu"></div>
+                    <div class="accordion-title js-accordion-title">メニュー</div>
+                    <div class="accordion-content">
                         <ul>
-                            <li class="accordion-list"><a href="/top">HOME</a></li>
-                            <li class="accordion-list"><a href="/profile">プロフィール編集</a></li>
-                            <li class="accordion-list"><a href="/logout">ログアウト</a></li>
+                        <li><a href="/top">HOME</a></li>
+                        <li><a href="/profile">プロフィール編集</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
                         </ul>
                     </nav>
                     @if(Auth::user()->images=="dawn.png")
@@ -67,18 +66,7 @@
                     <p class="btn"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
                 </div>
             </div>
-            <!-- モーダルの表示 -->
-<div id="modal" class="js-modal">
-    <div class="modal-container">
-        <div class="modal-content">
-            <button class="modalopen" data-target="#modal">編集</button>
-            <!-- モーダルの中身 -->
-            <textarea name="post" id="post" placeholder="follow-posts" maxlength="150"></textarea>
-            <p>モーダルのコンテンツ</p>
-            <button class="modalClose">閉じる</button>
-        </div>
-    </div>
-</div>
+
             <footer>
             </footer>
                 <!-- Javascript・jQueryのファイルリンク -->

@@ -1,13 +1,17 @@
 //アコーディオンメニュー
 jQuery(function ($) {
   // コンテンツを非表示
-  $('.accordion-content').hide();
+  $('.accordion-menu').hide();
   //コンテンツのタイトルをクリック
   $('.js-accordion-title').on('click', function () {
     //クリックでコンテンツを展開
-    $(this).next().slideToggle(200);
+    $(this).next('.menu-btn').slideToggle(200);
     //矢印の向きを変更
     $(this).toggleClass('open', 200);
+    $(function () {
+      $('.js-accordion-title').on('click', function () {
+      });
+    });
   }).next().hide();
 });
 
@@ -26,12 +30,15 @@ $(function () {
 $(function () {
   $('.modalopen').click(function () {
     var target = $(this).data('target');
-    var postContent = $(this).prev('input[name="post"]').val(); // クリックした編集ボタンの隣のhidden inputから投稿内容を取得
-    $(target).find('textarea').val(postContent); // モーダル内のtextareaに投稿内容を表示
+    var postId = $(this).prev('input[name="post_id"]').val();
+    var postContent = $(this).prev('input[name="post"]').val();
+    $(target).find('#editForm').attr('action', '/posts/update/' + postId); // フォームのaction属性を正しいURLに更新
+    $(target).find('#edited_post').val(postContent); // フォーム内のtextareaに投稿内容を表示
     $(target).fadeIn();
     return false;
   });
 });
+
 
 
 

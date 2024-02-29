@@ -37,12 +37,19 @@ class PostsController extends Controller
         $post->save();
         return redirect('/top');
     }
-    public function edit(Request $request)
+    public function edit($post_id)
     {
-         $post = Post::find($request->post_id);
+         $post = Post::find($post_id);
          $posts = Post::where('user_id', Auth::id())->get();
          //モーダル表示用に初期値を設定
-         return view('posts.index', ['post' => $post, 'posts' => $posts,'follows'=>Auth::user()->followings()->get()]);
+        return view('posts.edit', ['post' => $post, 'posts' => $posts, 'follows' => Auth::user()->followings()->get()]);
+    }
+    //投稿の削除
+    public function destroy($post_id)
+    {
+    $post = Post::find($post_id);
+    $post->delete();
+    return redirect('/top');
     }
     public function update(Request $request, $post_id)
     {

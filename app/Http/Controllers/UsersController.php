@@ -24,6 +24,30 @@ class UsersController extends Controller
         return redirect()->route('profile');
         }
     }
+    //プロフィール編集機能
+    public function updateProfile(Request $request)
+    {
+      $id=$request->input('id');
+      $username=$request->input('username');
+      $maile=$request->input('maile');
+      $password=$request->input('password');
+      $bio=$request->inpput('bio');
+      //$images=$request->input('images');
+
+      User::where('id',$id)->update([
+        'username'=>$username,
+        'maile'=>$mail,
+        'password'=>Hash::make($request->password),//ハッシュ化
+        //'images'=>$images
+      ]);
+      return redirect('/top');
+    }
+    //プロフィール編集画面を表示する
+    public function showUpdateForm()
+    {
+      return view('updateProfile');
+    }
+
     public function followProfile($user_id)
     {
         $user = User::find($user_id);

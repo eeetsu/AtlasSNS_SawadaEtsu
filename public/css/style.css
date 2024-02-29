@@ -10,8 +10,12 @@ header {
     background: #186AC9;
 }
 
+img {
+    size: 60px 70px;
+}
+
 p {
-    color: #f7ecf1;
+    color: black;
 }
 
 /* main content */
@@ -92,7 +96,7 @@ p {
     transform: rotate(90deg);
 }
 
-.tag {
+.accordion-menu {
     position: absolute;
     top: 75px;
     width: 100%;
@@ -130,17 +134,27 @@ p {
     cursor: pointer;
 }
 
+
 .accordion-container .accordion-title {
     display: block;
     position: relative;
-    /* margin: 0; */
-    font-size: 1.15em;
+    font-size: 1.25rem;
     font-weight: normal;
     color: #fff;
-    cursor: pointer;
     width: 50px;
     height: 17px;
     padding-left: 50px;
+}
+
+.accordion-title::after {
+    content: “”;
+    position: absolute;
+    right: 40px;
+    top: 3%;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px #fff;
 }
 
 a.home {
@@ -176,6 +190,8 @@ a.profile {
     display: none;
     padding: 10px 20px;
 }
+
+
 
 .accordion-switch.open .accordion-contents {
     display: block;

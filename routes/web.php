@@ -32,7 +32,7 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/top','PostsController@index');
     Route::post('/posts','PostsController@store')->name('posts.store');
-    Route::post('/posts/edit','PostsController@edit')->name('posts.edit');
+    Route::get('/posts/edit/{post_id}','PostsController@edit')->name('posts.edit');
     Route::put('/posts/update/{post_id}','PostsController@update')->name('posts.update');
     Route::get('/profile','UsersController@profile')->name('profile');
     Route::get('/follow/{user_id}','UsersController@followProfile')->name('follow.profile');
@@ -42,10 +42,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/follower-list','PostsController@followerList');
     Route::post('/follow/{user_id}','UsersController@follow')->name('follow');
     Route::post('/unfollow/{user_id}','UsersController@unfollow')->name('unfollow');
+    //プロフィール編集機能
+    Route::post('/profile/update','UsersController@updateProfile');//プロフィール編集画面
+    Route::get('profile/update','UsersController@showUpdateForm');//プロフィール編集画面を表示
+    Route::delete('/posts/destroy/{post_id}', 'PostsController@destroy')->name('posts.destroy');//投稿の削除
 });
 
-// ログインしていないユーザー(gest）がログイン後のページに直接アクセスした場合、
-// ログインページにリダイレクトされるようになる！
-Route::middleware(['auth'])->group(function () {
+    // ログインしていないユーザー(gest）がログイン後のページに直接アクセスした場合、
+   // ログインページにリダイレクトされるようになる！
+    Route::middleware(['auth'])->group(function () {
     Route::get('/logout','Auth\LoginController@logout')->name('logout');
 });

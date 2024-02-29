@@ -12,27 +12,33 @@
     <button type="submit">投稿</button>
 </form>
 
+
+
 <!-- ログインユーザーの投稿一覧表示 -->
 @foreach($posts as $post)
-    <div>
-        <!-- 投稿者名、投稿内容の表示 -->
-         <p>{{ $post->user->username }}</p>
-         <p>{{ $post->post }}</p>
-         <!-- 編集ボタン -->
-        <form method="POST" action="{{ route('posts.edit') }}">
+   <div>
+    <!-- 投稿者名、投稿内容の表示 -->
+    <p>{{ $post->user->username }}</p>
+    <p>{{ $post->post }}</p>
+    <!-- 編集ボタン -->
+    <form method="POST" action="{{ route('posts.update', ['post_id' => $post->id]) }}">
         @csrf
-            <input type="hidden" name="post_id" value="{{ $post->id }}">
-            <input type="hidden" name="post" value="{{ $post->post }}">
-            <!-- 編集ボタンがクリックされたときに投稿内容をhiddenで送信 -->
-            <button class="modalopen" data-target="#modal">編集</button>
-        </form>
+        <input type="hidden" name="_method" value="PUT">
+        <textarea name="post" id="edited_post" maxlength="150">{{ $post->post }}</textarea>
+        <button type="submit">更新</button>
+    </form>
+    <!-- 削除ボタン -->
+    <form method="POST" action="{{ route('posts.destroy', ['post_id' => $post->id]) }}">
+        @csrf
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">削除</button>
+    </form>
     </div>
 @endforeach
 
 <!-- 投稿一覧を表示 -->
   <div class="follow-list">
   <div class="follow-icons">
-
   </div>
 
   <div class="follow-posts">
