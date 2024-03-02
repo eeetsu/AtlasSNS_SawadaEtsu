@@ -17,8 +17,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
     protected $fillable = [
-        'username', 'mail', 'password', 'bio',
+    'username', 'mail', 'password', 'bio',
+    'images' // 画像のカラムを追加
     ];
 
     /**
@@ -29,6 +31,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     //リレーション
     public function followings()
     {

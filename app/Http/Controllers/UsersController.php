@@ -27,20 +27,36 @@ class UsersController extends Controller
     //プロフィール編集機能
     public function updateProfile(Request $request)
     {
+      $request->validate([
+      // バリデーションルールを設定
+      'username' => 'required|max:12|min:2',
+        'mail' => 'required|email|max:40|min:5',
+      //Passwordはusersテーブルのpasswordの条件を指定
+      //alpha_numで英数字のみで構成（unique ルールは不要になる）
+        'password' => 'required|alpha_num|max:20|min:8',
+      //PasswordConfirmはusersテーブルのpassword_confirmationの条件を指定
+      //same:PasswordでPassword 入力欄と一致しているかも確認！
+        'password_confirmation' => 'required|alpha_num|max:20|min:8|same:password',
+        'bio' => 'max:150', //必須ではないのでrequiredは省く
+      //画像(jpg、png、bmp、gif、svg)ファイル以外は不可
+        'images' => 'image|mimes:jpeg,png,bmp,gif|max:2048',
+      ]);
       $id=$request->input('id');
       $username=$request->input('username');
-      $maile=$request->input('maile');
+      $mail=$request->input('mail');
       $password=$request->input('password');
       $bio=$request->input('bio');
       //$images=$request->input('images');
 
-      User::where('id',$id)->update([
-        'username'=>$username,
-        'maile'=>$mail,
-        'password'=>Hash::make($request->password),//ハッシュ化
-        //'images'=>$images
+      // バリデーションを通過した後の処理
+      // Userモデルを使用して、該当ユーザーの情報を更新
+      User::where('id', $id)->update([
+        'username' => $username,
+        'mail' => $mail,
+        'password' => bcrypt($password), // パスワードはbcryptで暗号化して保存
+        'bio' => $bio
       ]);
-      return redirect('/top');
+      return redirect('/top'); //トップページへリダイレクト
     }
     //プロフィール編集画面を表示する
     public function showUpdateForm()

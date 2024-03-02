@@ -11,12 +11,12 @@
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
-    <link rel="icon" href="images/atlas.png" sizes="16x16" type="image/png" />
-    <link rel="icon" href="images/atlas.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="images/atlas.png" sizes="48x48" type="image/png" />
-    <link rel="icon" href="images/atlas.png" sizes="62x62" type="image/png" />
+    <link rel="icon" href="{{ asset('images/atlas.png') }}" sizes="16x16" type="image/png" />
+    <link rel="icon" href="{{ asset('images/atlas.png') }}" sizes="32x32" type="image/png" />
+    <link rel="icon" href="{{ asset('images/atlas.png') }}" sizes="48x48" type="image/png" />
+    <link rel="icon" href="{{ asset('images/atlas.png') }}" sizes="62x62" type="image/png" />
     <!--iphoneのアプリアイコン指定-->
-    <link rel="apple-touch-icon-precomposed" href="images/atlas.png" />
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/atlas.png') }}" />
     <!--OGPタグ/twitterカード-->
     <!-- Javascript・jQueryのファイルリンク -->
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
