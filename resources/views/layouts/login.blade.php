@@ -18,25 +18,32 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="images/atlas.png" />
     <!--OGPタグ/twitterカード-->
+    <!-- Javascript・jQueryのファイルリンク -->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+            <!-- ↓この記述で繋げる -->
+            <script src="{{ asset('js/script.js') }}"></script>
+            <script src="/public/js/script.js"></script>
 </head>
 <body>
     <header>
         <div id="head">
-            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+
+             <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div class="nav-open">
                  <!-- $user->usernameで名前カラムを渡す -->
-                    <!-- アコーディオンメニュー -->
-                    <p>{{ Auth::user()->username }}さん</p>
-                    <nav>
-                    <div class="accordion-container">
-                        <a href="" class="menu-btn"></a>
-                        <img src="images/icon1.png">
-                        <div class="accordion-menu">
-                            <ul>
-                                <li><a href="/top">HOME</a></li>
-                                <li><a href="/profile">プロフィール編集</a></li>
-                                <li><a href="/logout">ログアウト</a></li>
-                            </ul>
+                 <!-- アコーディオンメニュー -->
+                 <p>{{ Auth::user()->username }}さん</p>
+                 <nav>
+                     <div class="accordion-container">
+                         <button href="javascript:void(0);" class="menu-btn"></button>
+                         <img src="{{ asset('images/icon1.png') }}">
+                         <div class="accordion-menu-container">
+                         <div class="accordion-menu">
+                             <ul>
+                                 <li><a href="/top">HOME</a></li>
+                                 <li><a href="/profile/update">プロフィール編集</a></li>
+                                 <li><a href="/logout">ログアウト</a></li>
+                             </ul>
                         </div>
                     </div>
                 </nav>
@@ -69,10 +76,6 @@
 
             <footer>
             </footer>
-                <!-- Javascript・jQueryのファイルリンク -->
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-            <!-- ↓この記述で繋げる -->
-            <script src="{{ asset('js/script.js') }}"></script>
-            <script src="/public/js/script.js"></script>
+
         </body>
         </html>

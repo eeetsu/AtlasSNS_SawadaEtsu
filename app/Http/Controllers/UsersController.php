@@ -31,7 +31,7 @@ class UsersController extends Controller
       $username=$request->input('username');
       $maile=$request->input('maile');
       $password=$request->input('password');
-      $bio=$request->inpput('bio');
+      $bio=$request->input('bio');
       //$images=$request->input('images');
 
       User::where('id',$id)->update([
@@ -45,7 +45,7 @@ class UsersController extends Controller
     //プロフィール編集画面を表示する
     public function showUpdateForm()
     {
-      return view('updateProfile');
+      return view('users.updateProfile');
     }
 
     public function followProfile($user_id)

@@ -46,7 +46,7 @@ p {
 
 /* 常時開いたままにしないよう設定 */
 .nav-open ul {
-    display: none;
+    /* display: none; */
 }
 
 .nav-open {
@@ -104,7 +104,8 @@ p {
     left: 70px;
     /* margin-left:0; */
     border-color: darkblue;
-    display: flex;
+    /* display: none; */
+    /* メニューの最初は非表示にする */
     background-color: #fff;
     text-align: center;
     flex-flow: column;
@@ -195,6 +196,7 @@ a.profile {
 
 .accordion-switch.open .accordion-contents {
     display: block;
+    /* アコーディオンが開いた時にコンテンツを表示する*/
 }
 
 .nav-btn {
@@ -223,7 +225,7 @@ nav-btn::after {
 
 /* モーダルのスタイル */
 .modal-main {
-    display: none;
+    display: flex;
 }
 
 .modal-inner {

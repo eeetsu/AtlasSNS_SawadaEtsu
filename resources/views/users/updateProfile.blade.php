@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="update">
-    {!! Form::open(['url'=>'/profile/update','method=>'POST']) !!}
+    {!! Form::open(['url'=>'/profile/update','enctype'=>'multipart/form-data'])!!}
     @csrf
     {{Form::hidden('id',Auth::user()->id)}}
     <img class="update-icon" src="images/icon1.png">

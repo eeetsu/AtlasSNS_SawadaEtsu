@@ -1,13 +1,15 @@
 // アコーディオンメニュー
 $(function () {
   // コンテンツを非表示
-  $('.accordion-menu').hide();
+  //$('.accordion-menu').hide();
   // コンテンツをクリック
   $('.menu-btn').on('click', function () {
     // クリックでコンテンツを展開
     $(this).next('.accordion-menu').slideToggle(200);
-    //矢印の向きを変更
-    $(this).toggleClass('open', 200);
+    // 矢印の向きを変更
+    $(this).toggleClass('open');
+    // 他のコンテンツを閉じる
+    $('.accordion-menu').not($(this).next()).slideUp();
   });
 });
 
