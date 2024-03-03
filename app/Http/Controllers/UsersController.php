@@ -56,7 +56,8 @@ class UsersController extends Controller
         'password' => bcrypt($password), // パスワードはbcryptで暗号化して保存
         'bio' => $bio
       ]);
-      return redirect('/top'); //トップページへリダイレクト
+      //return redirect('/top'); //トップページへリダイレクト
+      return back();
     }
     //プロフィール編集画面を表示する
     public function showUpdateForm()
