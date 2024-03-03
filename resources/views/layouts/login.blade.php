@@ -48,7 +48,7 @@
                     </div>
                 </nav>
                     @if(Auth::user()->images=="dawn.png")
-                    <img src="/public/images/icon1.png" class="icon" width="" alt="">
+                    <img src="{{ asset('images/icon1.png') }}">
                     @else
                     @endif
             </header>

@@ -46,5 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/update','UsersController@updateProfile');//プロフィール編集画面
     Route::get('profile/update','UsersController@showUpdateForm');//プロフィール編集画面を表示
     Route::delete('/posts/destroy/{post_id}', 'PostsController@destroy')->name('posts.destroy');//投稿の削除
-    //Route::get('/logout','Auth\LoginController@logout')->name('logout');
+    // ログインしていないユーザー(gest）がログイン後のページに直接アクセスした場合、
+    // ログインページにリダイレクトされるようになる！
+    Route::get('/logout','Auth\LoginController@logout')->name('logout');
 });

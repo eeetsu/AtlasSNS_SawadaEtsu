@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -48,6 +49,10 @@ class UsersController extends Controller
       $bio=$request->input('bio');
       //$images=$request->input('images');
 
+      //AuthenticateSession「パスワード変更時に他のデバイスでログインしているアカウントを強制的にログアウト
+      //現在のデバイスでの認証を切らさないためにはAuth::logoutOtherDevices()を使って新しくハッシュ化させたパスワードをセッションに渡す
+      //Auth::logoutOtherDevices(Hash::make($request->password));
+
       // バリデーションを通過した後の処理
       // Userモデルを使用して、該当ユーザーの情報を更新
       User::where('id', $id)->update([
@@ -56,8 +61,7 @@ class UsersController extends Controller
         'password' => bcrypt($password), // パスワードはbcryptで暗号化して保存
         'bio' => $bio
       ]);
-      //return redirect('/top'); //トップページへリダイレクト
-      return back();
+      return redirect('/top'); //トップページへリダイレクト
     }
     //プロフィール編集画面を表示する
     public function showUpdateForm()
