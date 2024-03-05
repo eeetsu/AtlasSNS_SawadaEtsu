@@ -8,7 +8,7 @@
         <textarea name="post" id="post" placeholder="投稿内容を入力してください." maxlength="150"></textarea>
     </div>
     <!-- ログインユーザーのユーザーアイコン表示 -->
-    <img src="{{ Auth::user()->icon }}" alt="icon">
+    <img src="{{ asset('images/icon1.png') }}">
     <button type="submit">投稿</button>
 </form>
 
@@ -45,7 +45,9 @@
 @foreach($follows as $follow)
     @foreach($follow->posts()->orderBy('created_at', 'desc')->get() as $post)
         <div class="post">
-            <img src="{{ $follow->images }}" alt="follow-icon">
+            <a href="{{ route('follow.profile', ['user_id' => $follow->id]) }}" class="btn" enctype="multipart/form-data">
+             <img src="{{ asset('storage/images/' . $follow->images) }}" alt="">
+            </a>
             <h4>{{ $post->post }}</h4>
             <p>{{ $post->user->username }}</p>
             <p>投稿日時：{{ $post->created_at }}</p>

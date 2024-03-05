@@ -15,11 +15,13 @@ class UsersController extends Controller
         $user = Auth::user(); // ログインユーザーを取得
         $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
         $follows = Auth::user()->followings()->get();
+        $images = $user->images;
         return view('users.profile')->with([
           'user' => Auth::user(),
           'bio' => Auth::user()->bio,
           'posts' => $posts,
           'follows' => $follows,
+          'images' => $images,
         ]);
         } else {
         return redirect()->route('profile');
@@ -47,6 +49,9 @@ class UsersController extends Controller
       $mail=$request->input('mail');
       $password=$request->input('password');
       $bio=$request->input('bio');
+
+      $users = User::find($id);
+
       //$images=$request->input('images');
 
       //AuthenticateSession「パスワード変更時に他のデバイスでログインしているアカウントを強制的にログアウト
@@ -61,8 +66,16 @@ class UsersController extends Controller
         'password' => bcrypt($password), // パスワードはbcryptで暗号化して保存
         'bio' => $bio
       ]);
-      return redirect('/top'); //トップページへリダイレクト
+      //各ユーザーのアイコンを表示させる
+       if ($request->hasFile('images')) {
+          $name = $request->file('images')->getClientOriginalName();
+          $file = $request->file('images')->move('storage/images', $name);
+          $users->images = $name;
+      }
+          $users->save();
+       return redirect('/top'); //トップページへリダイレクト
     }
+
     //プロフィール編集画面を表示する
     public function showUpdateForm()
     {
@@ -73,10 +86,12 @@ class UsersController extends Controller
     {
         $user = User::find($user_id);
         $posts = $user->posts;
+        $images = $user->images;
         return view('users.profile')->with([
         'user' => $user,
         'bio' => $user->bio,
         'posts' => $posts,
+        'images' => $images,
         ]);
     }
 
@@ -84,12 +99,15 @@ class UsersController extends Controller
     {
         $user = User::find($user_id);
         $posts = $user->posts;
+        $images = $user->images;
         return view('users.profile')->with([
         'user' => $user,
         'bio' => $user->bio,
         'posts' => $posts,
+        'images' => $images,
         ]);
     }
+
     public function search(Request $request)    //検索機能
     {
      // 1つ目の処理
@@ -112,6 +130,7 @@ class UsersController extends Controller
       // 3つ目の処理
       return view('users.search',['users'=>$users, 'keyword'=>$keyword]);
       }
+
      // フォロー機能
     public function follow($id)
       {
@@ -123,6 +142,7 @@ class UsersController extends Controller
       }
        return redirect()->back();
       }
+
     // フォロー解除機能
     public function unfollow($id)
       {
@@ -134,5 +154,7 @@ class UsersController extends Controller
      }
       return redirect()->back();
       }
+
+
 }
 ?>

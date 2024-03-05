@@ -17,10 +17,14 @@ class PostsController extends Controller
         $user = Auth::user(); // ログインユーザーを取得
         $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
         $follows = Auth::user()->followings()->get();
+        // ログインユーザーの画像情報を取得
+        $images = User::whereIn('id', Auth::user()->followings()->pluck('followed_id'))->get()->pluck('images');
+
         return view('posts.index')->with([
             'user' => Auth::user(),
             'posts' => $posts,
             'follows' => $follows,
+            'images' => $images,
         ]);
     } else {
         return redirect()->route('top');
@@ -34,7 +38,14 @@ class PostsController extends Controller
         $post = new Post();
         $post->user_id = Auth::user()->id;
         $post->post = $request->post;
-        $post->save();
+
+
+        if(request('image')){
+            $name=request()->file('images')->getClientOriginalName();
+            request()->file('images')->move('storage/images',$name);
+            $post->images=$name;
+        }
+         $post->save();
         return redirect('/top');
     }
     public function edit($post_id)
@@ -67,10 +78,12 @@ class PostsController extends Controller
         $user = Auth::user(); // ログインユーザーを取得
         $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followings()->pluck('followed_id'))->latest()->get();
         $follows = Auth::user()->followings()->get();
+        $images = $user->images;
         return view('follows.followList')->with([
           'user' => Auth::user(),
           'posts' => $posts,
           'follows' => $follows,
+          'images' => $images,
         ]);
     } else {
         return redirect()->route('follow-list');
@@ -82,13 +95,16 @@ class PostsController extends Controller
         $user = Auth::user(); // ログインユーザーを取得
         $posts = \App\Post::query()->whereIn('user_id', Auth::user()->followers()->pluck('following_id'))->latest()->get();
         $follows = Auth::user()->followers()->get();
+        $images = $user->images;
         return view('follows.followerList')->with([
             'user' => Auth::user(),
             'posts' => $posts,
             'follows' => $follows,
+            'images' => $images,
         ]);
     } else {
         return redirect()->route('follower-list');
     }
-}
+    }
+
 }

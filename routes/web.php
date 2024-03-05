@@ -32,6 +32,8 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/top','PostsController@index')->name('top'); //ログインユーザーのトップページ
     Route::post('/posts','PostsController@store')->name('posts.store');
+     //ユーザーアイコンの変更を取得する
+    Route::post('/storage/images', 'PostsController@store')->name('storage.images');
     Route::get('/posts/edit/{post_id}','PostsController@edit')->name('posts.edit');
     Route::put('/posts/update/{post_id}','PostsController@update')->name('posts.update');
     Route::get('/profile','UsersController@profile')->name('profile');

@@ -17,35 +17,49 @@ class UsersTableSeeder extends Seeder
           'mail' => 'atlas_ichi@com',
           'password' => bcrypt('12345678'),
           'bio' => 'クリエイターです！よろしく！',
-          'images' => asset('/public/images/icon1.png')//イメージ画像のパスを格納
+          'images' => 'icon1.png'
       ],
       [
           'username' => 'Atlas二郎',
           'mail' => 'atlas_ni@com',
-          'password' => bcrypt('234567'),
+          'password' => bcrypt('23456789'),
           'bio' => '育児奮闘中！',
-          'images' => asset('/public/images/icon2.png')//イメージ画像のパスを格納
+          'images' => 'icon2.png'
       ],
       [
           'username' => 'Atlas三郎',
           'mail' => 'atlas_san@com',
-          'password' => bcrypt('345678'),
+          'password' => bcrypt('34567891'),
           'bio' => 'システムエンジニアしています！',
-          'images' => asset('/public/images/icon3.png')//イメージ画像のパスを格納
+          'images' => 'icon3.png'
       ],
       [
           'username' => 'Atlas四郎',
           'mail' => 'atlas_yon@com',
-          'password' => bcrypt('456789'),
-          'bio' => 'WEBデザイナーをしています！',
-          'images' => asset('/public/images/icon4.png')//イメージ画像のパスを格納
+          'password' => bcrypt('45678912'),
+          'bio' => 'WEBデザイナーをしています!',
+          'images' => 'icon4.png'
+      ],
+      [
+          'username' => 'Atlas五郎',
+          'mail' => 'atlas_go@com',
+          'password' => bcrypt('56789123'),
+          'bio' => '会社員です！',
+          'images' => 'icon5.png'
+      ],
+      [
+          'username' => 'Atlas六郎',
+          'mail' => 'atlas_roku@com',
+          'password' => bcrypt('67891234'),
+          'bio' => '会社員です！',
+          'images' => 'icon6.png'
       ],
       [
           'username' => 'aaa',
           'mail' => 'aaa12345@gmail.com',
           'password' => bcrypt('aaa12345'),
           'bio' => '会社員です！',
-          'images' => asset('/public/images/icon5.png')//イメージ画像のパスを格納
+          'images' => 'icon7.png'
       ],
     ]);
   }
