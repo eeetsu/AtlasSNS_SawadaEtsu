@@ -20,11 +20,17 @@
     <!--OGPタグ/twitterカード-->
     <!-- Javascript・jQueryのファイルリンク -->
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-            <!-- ↓この記述で繋げる -->
-            <script src="{{ asset('js/script.js') }}"></script>
-            <script src="/public/js/script.js"></script>
+    <!-- ↓この記述で繋げる -->
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="/public/js/script.js"></script>
+  <!-- BootstrapのCSS読み込み -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- jQuery読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- BootstrapのJS読み込み -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <header>
         <div id="head">
 

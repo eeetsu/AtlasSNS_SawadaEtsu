@@ -15,6 +15,14 @@ $(function () {
 
 
 
+
+
+//$('.parent').click(function(){
+//    $('.child').slideToggle();
+//});
+
+
+
 //$(function () {
 //  $('.accordion-menu').click(function () {
 //ボタン（'.accordion-menu'）をタップすると、

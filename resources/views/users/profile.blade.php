@@ -3,8 +3,7 @@
 @section('content')
 <div class="container">
     <!-- アイコンユーザーアイコンの表示 -->
-    <img src="{{ $user->images }}" >
-
+    <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
     <!-- アイコンユーザー名 -->
     <h2>name  {{ $user->username }}</h2>
 
@@ -30,7 +29,7 @@
     <div class="follow-posts">
         @foreach($user->posts()->orderBy('created_at', 'desc')->get() as $post)
             <div class="post">
-                <img src="{{ $user->images }}" >
+                <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
                 <p>{{ $user->username }}</p>
                 <h4>{{ $post->post }}</h4>
                 <p>投稿日時：{{ $post->created_at }}</p>
