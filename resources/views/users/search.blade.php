@@ -7,7 +7,7 @@
     <form action="/search" method="get">
         @csrf
         <input type="text" name="keyword" class="form" placeholder="ユーザー名" value="{{ $keyword ?? '' }}">
-        <button type="submit" class="btn btn-success">検索ロゴ</button>
+        <button type="submit" class="btn btn-search"><img src="{{ asset('images/search.png') }}"></button>
     </form>
     <!-- 検索ワードが空でない場合のみ表示 -->
     @if (!empty($keyword))

@@ -9,7 +9,7 @@
     </div>
     <!-- ログインユーザーのユーザーアイコン表示 -->
     <img src="{{ asset('images/icon1.png') }}">
-    <button type="submit">投稿</button>
+    <button type="submit" class="btn btn-post"><img src="{{ asset('images/post.png') }}"></button>
 </form>
 
 
@@ -25,13 +25,14 @@
         @csrf
         <input type="hidden" name="_method" value="PUT">
         <textarea name="post" id="edited_post" maxlength="150">{{ $post->post }}</textarea>
-        <button type="submit">更新</button>
+        <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}"></button>
     </form>
     <!-- 削除ボタン -->
     <form method="POST" action="{{ route('posts.destroy', ['post_id' => $post->id]) }}">
         @csrf
         <input type="hidden" name="_method" value="DELETE">
-        <button type="submit">削除</button>
+        <button type="submit" class="btn btn-danger"><img src="{{ asset('images/trash-h.png') }}"></button>
+
     </form>
     </div>
 @endforeach
