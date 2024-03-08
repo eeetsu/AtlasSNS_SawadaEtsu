@@ -20,22 +20,34 @@
     <!-- 投稿者名、投稿内容の表示 -->
     <p>{{ $post->user->username }}</p>
     <p>{{ $post->post }}</p>
+
     <!-- 編集ボタン -->
-    <form method="POST" action="{{ route('posts.update', ['post_id' => $post->id]) }}">
-        @csrf
-        <input type="hidden" name="_method" value="PUT">
-        <textarea name="post" id="edited_post" maxlength="150">{{ $post->post }}</textarea>
-        <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}"></button>
-    </form>
+    <button class="btn btn-primary js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}"></button>
+
+    <!-- モーダル -->
+    <div class="modal js-modal">
+      <div class="modal_bg">
+       <div class="modal_content">
+           <form method="POST" action="{{ route('posts.update', ['post_id' => $post->id]) }}">
+               @csrf
+               <input type="hidden" name="_method" value="PUT">
+               <textarea name="post" id="edited_post" maxlength="150">{{ $post->post }}</textarea>
+               <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}"></button>
+           </form>
+           <button class="js-modal-close">Close</button>
+       </div>
+     </div>
+   </div>
+
     <!-- 削除ボタン -->
     <form method="POST" action="{{ route('posts.destroy', ['post_id' => $post->id]) }}">
         @csrf
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit" class="btn btn-danger"><img src="{{ asset('images/trash-h.png') }}"></button>
-
     </form>
-    </div>
+   </div>
 @endforeach
+
 
 <!-- 投稿一覧を表示 -->
   <div class="follow-list">

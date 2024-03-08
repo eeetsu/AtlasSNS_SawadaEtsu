@@ -14,6 +14,11 @@ img {
     size: 60px 70px;
 }
 
+.btn.btn.btn-search {
+    padding: 6px 12px;
+    font-size: 6%;
+}
+
 p {
     color: black;
 }
@@ -42,17 +47,25 @@ p {
 
 
 
-/* アコーディオンメニュー */
-.accordion-container {
-    display: flex;
-    position: relative;
-}
 
+/* アコーディオンメニュー */
 
 .nav-open {
     margin-left: 700px;
 }
 
+.nav-open ul li {
+    padding: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+    text-align: center;
+    /* display: none; */
+}
+
+.accordion-container {
+    display: flex;
+    position: relative;
+}
 
 .menu-btn {
     display: flex;
@@ -65,6 +78,17 @@ p {
     position: relative;
 }
 
+.accordion-menu {
+    display: none;
+    /* 初期状態は非表示 */
+    position: absolute;
+    top: 75px;
+    width: 100%;
+    height: auto;
+    left: 80px;
+    background-color: #fff;
+}
+
 .menu-btn::after {
     content: '>';
     position: absolute;
@@ -75,28 +99,8 @@ p {
     transform: rotate(-90deg);
 }
 
-
 .menu-btn.open::after {
     transform: rotate(90deg);
-}
-
-
-.accordion-menu {
-    position: absolute;
-    top: 75px;
-    width: 100%;
-    height: auto;
-    left: 80px;
-    background-color: #fff;
-
-}
-
-.nav-open ul li {
-    padding: 20px;
-    border: 1px solid;
-    white-space: nowrap;
-    text-align: center;
-    /* display: none; */
 }
 
 
@@ -121,24 +125,10 @@ p {
     z-index: 2;
 }
 
-.inner-content {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    max-width: 1024px;
-}
-
 .modal-inner img {
     width: 100%;
     margin: 0 auto;
     margin-bottom: 10px;
-}
-
-.inner-title {
-    margin-top: 40px;
-    margin-bottom: 32px;
-    font-size: 2.8rem;
-    font-weight: bold;
 }
 
 .modal {
@@ -163,9 +153,14 @@ p {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60;
+    width: 60%;
 }
 
 .modal_content p {
     text-align: center;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 40px;
 }

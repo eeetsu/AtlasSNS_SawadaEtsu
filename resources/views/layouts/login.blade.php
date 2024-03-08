@@ -20,9 +20,9 @@
     <!--OGPタグ/twitterカード-->
     <!-- Javascript・jQueryのファイルリンク -->
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <!-- ↓この記述で繋げる -->
+    <!-- scriptの読み込み -->
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="/public/js/script.js"></script>
+    <!-- <script src="/public/js/script.js"></script> -->
   <!-- BootstrapのCSS読み込み -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -31,33 +31,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- BootstrapのJS読み込み -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <header>
         <div id="head">
-
              <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div class="nav-open">
-                 <!-- $user->usernameで名前カラムを渡す -->
-                 <!-- アコーディオンメニュー -->
-                 <p>{{ Auth::user()->username }}さん</p>
-                 <nav>
-                     <div class="accordion-container">
-                         <button href="javascript:void(0);" class="menu-btn"></button>
-                         <img src="{{ asset('images/icon1.png') }}">
-                         <div class="accordion-menu-container">
-                         <div class="accordion-menu">
-                             <ul>
-                                 <li><a href="/top">HOME</a></li>
-                                 <li><a href="/profile/update">プロフィール編集</a></li>
-                                 <li><a href="/logout">ログアウト</a></li>
-                             </ul>
-                        </div>
-                    </div>
-                </nav>
-                    @if(Auth::user()->images=="dawn.png")
+             <p>{{ Auth::user()->username }}さん</p>
+            <nav>
+                <div class="accordion-container">
+                    <button class="menu-btn"></button>
                     <img src="{{ asset('images/icon1.png') }}">
-                    @else
-                    @endif
-            </header>
+                    <!-- アコーディオンメニュー -->
+                    <div class="accordion-menu" style="display: none;">
+                        <ul>
+                            <li><a href="/top">HOME</a></li>
+                            <li><a href="/profile/update">プロフィール編集</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        @if(Auth::user()->images=="dawn.png")
+        <img src="{{ asset('images/icon1.png') }}">
+        @else
+        @endif
+    </header>
             <div id="row">
                 <div id="container">
                     @yield('content')
