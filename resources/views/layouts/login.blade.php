@@ -41,19 +41,17 @@
                 <button class="menu-btn"></button>
                 <img src="{{ asset('images/icon1.png') }}">
                 <!-- アコーディオンメニュー -->
-                <div class="container">
-                    <div class="accordion" >
-                        <div class=“accordion-header”>
-                    <div>
-
+                <div class=“accordion” >
+                    <div class=“accordion-header”>
+                        <button class="menu-btn"></button>
                         <!-- クリックして表示される文章 -->
                         <div class=“accordion-content”>
                             <ul>
-                                <li><a href="/top"><p class="header-p-gray">HOME</p></a></li>
-                                <li><a href="/profile/update"><p class="header-p-white">プロフィール編集</p></a></li>
-                                <li><a href="/logout"><p class="header-p-gray">ログアウト</p></a></li>
+                                <li class="li-first"><a href="/top"><p class="header-p-gray">HOME</p></a></li>
+                                <li class="li-second"><a href="/profile/update"><p class="header-p-white">プロフィール編集</p></a></li>
+                                <li class="li-first"><a href="/logout"><p class="header-p-gray">ログアウト</p></a></li>
                             </ul>
-                        <div>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -84,7 +82,7 @@
                             <p>フォロワー数</p>
                             <p>{{ count(Auth::user()->followers ?? []) }}名</p>
                         </div>
-                        <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
+                        <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}" >フォロワーリスト</a></p>
                     </div>
                     <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>
                 </div>

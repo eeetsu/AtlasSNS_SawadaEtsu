@@ -1,16 +1,20 @@
 $(function () {
   $('.menu-btn').on('click', function () {
     // クリックでコンテンツを展開/閉じる
-    $(this).next('.accordion-menu').slideToggle(200);
+    $(this).next('.accordion-content').slideToggle(200);
     $(this).toggleClass('open');
     // 他のコンテンツを閉じる
     $('.menu-btn').not($(this)).removeClass('open');
-    //$('.accordion-menu').not($(this).next()).slideUp();
+    //$('.accordion-content').not($(this).next()).slideUp();
   });
 
   // 初期状態でアコーディオンメニューを非表示にする
-  $('.accordion-menu').hide();
+  $('.accordion-content').hide();
 });
+
+
+
+
 
 
 

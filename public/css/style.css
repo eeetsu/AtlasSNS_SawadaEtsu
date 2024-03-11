@@ -61,20 +61,32 @@ a {
 
 /* アコーディオンメニュー */
 
-
-
 .nav-open {
-    margin-left: 700px;
+    display: flex;
+    position: absolute;
+    top: 65%;
+    left: 70%;
+    width: 200px;
 }
 
-.nav-open ul li {
+.li-first {
     padding: 20px;
     border: 1px solid;
     white-space: nowrap;
     text-align: center;
     color: black;
-    /* display: none; */
+    background: #fff;
 }
+
+.li-second {
+    padding: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+    text-align: center;
+    color: black;
+    background: navy;
+}
+
 
 .accordion-container {
     display: flex;
@@ -94,12 +106,11 @@ a {
 
 .accordion-menu {
     display: none;
-    /* 初期状態は非表示 */
     position: absolute;
-    top: 75px;
+    top: 100%;
+    /* ヘッダーの直下に表示 */
     width: 100%;
     height: auto;
-    left: 80px;
     background-color: #fff;
 }
 
@@ -108,9 +119,14 @@ a {
     position: absolute;
     width: 8px;
     height: 8px;
-    right: 40px;
-    top: 3%;
-    transform: rotate(-90deg);
+    right: 10px;
+    /* アイコンの右側に配置 */
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.menu-btn.open+.accordion-content {
+    display: block;
 }
 
 .menu-btn.open::after {
@@ -119,8 +135,6 @@ a {
 
 
 .accordion-content {
-    margin-left: 700px;
-    padding: 8px;
     display: none;
 }
 
