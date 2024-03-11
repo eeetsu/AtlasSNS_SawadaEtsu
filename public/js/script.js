@@ -5,9 +5,13 @@ $(function () {
     $(this).toggleClass('open');
     // 他のコンテンツを閉じる
     $('.menu-btn').not($(this)).removeClass('open');
-    $('.accordion-menu').not($(this).next()).slideUp();
+    //$('.accordion-menu').not($(this).next()).slideUp();
   });
+
+  // 初期状態でアコーディオンメニューを非表示にする
+  $('.accordion-menu').hide();
 });
+
 
 
 //$('.parent').click(function(){

@@ -7,7 +7,7 @@
     <form action="/search" method="get">
         @csrf
         <input type="text" name="keyword" class="form" placeholder="ユーザー名" value="{{ $keyword ?? '' }}">
-        <button type="submit" class="btn btn-search"><img src="{{ asset('images/search.png') }}"></button>
+        <button type="submit" class="btn btn-search"><img src="{{ asset('images/search.png') }}" width="32" height="32"></button>
     </form>
     <!-- 検索ワードが空でない場合のみ表示 -->
     @if (!empty($keyword))
@@ -22,12 +22,12 @@
                 @if(Auth::user()->followings->contains('id', $user->id))
                 <form action="{{ route('unfollow', $user->id) }}" method="POST">
                     @csrf
-                    <button type="submit">フォロー解除</button>
+                    <button type="submit" class="btn btn-danger">フォロー解除</button>
                 </form>
                 @else
                 <form action="{{ route('follow', $user->id) }}" method="POST">
                     @csrf
-                    <button type="submit">フォローする</button>
+                    <button type="submit" class="btn btn-primary">フォローする</button>
                 </form>
                 @endif
             @endif

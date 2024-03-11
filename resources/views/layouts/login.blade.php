@@ -33,31 +33,41 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <header>
-        <div id="head">
+       <div id="head">
              <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
-            <div class="nav-open">
-             <p>{{ Auth::user()->username }}さん</p>
+         <div class="nav-open">
+             <p class="header-p-white">{{ Auth::user()->username }}さん</p>
             <nav>
-                <div class="accordion-container">
-                    <button class="menu-btn"></button>
-                    <img src="{{ asset('images/icon1.png') }}">
-                    <!-- アコーディオンメニュー -->
-                    <div class="accordion-menu" style="display: none;">
-                        <ul>
-                            <li><a href="/top">HOME</a></li>
-                            <li><a href="/profile/update">プロフィール編集</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
+                <button class="menu-btn"></button>
+                <img src="{{ asset('images/icon1.png') }}">
+                <!-- アコーディオンメニュー -->
+                <div class="container">
+                    <div class="accordion" >
+                        <div class=“accordion-header”>
+                    <div>
+
+                        <!-- クリックして表示される文章 -->
+                        <div class=“accordion-content”>
+                            <ul>
+                                <li><a href="/top"><p class="header-p-gray">HOME</p></a></li>
+                                <li><a href="/profile/update"><p class="header-p-white">プロフィール編集</p></a></li>
+                                <li><a href="/logout"><p class="header-p-gray">ログアウト</p></a></li>
+                            </ul>
+                        <div>
                     </div>
                 </div>
             </nav>
-        </div>
+         </div>
+      </div>
+    </header>
+
+
 
         @if(Auth::user()->images=="dawn.png")
         <img src="{{ asset('images/icon1.png') }}">
         @else
         @endif
-    </header>
+
             <div id="row">
                 <div id="container">
                     @yield('content')
@@ -69,14 +79,14 @@
                             <p>フォロー数</p>
                             <p>{{ count(Auth::user()->followings ?? []) }}名</p>
                         </div>
-                        <p class="btn"><a href="{{ asset('/follow-list') }}">フォローリスト</a></p>
+                        <p class="btn"><a class="btn btn-primary" href="{{ asset('/follow-list') }}">フォローリスト</a></p>
                         <div>
                             <p>フォロワー数</p>
                             <p>{{ count(Auth::user()->followers ?? []) }}名</p>
                         </div>
-                        <p class="btn"><a href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
+                        <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
                     </div>
-                    <p class="btn"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
+                    <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>
                 </div>
             </div>
 

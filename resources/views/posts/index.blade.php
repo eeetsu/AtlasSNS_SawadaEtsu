@@ -9,7 +9,7 @@
     </div>
     <!-- ログインユーザーのユーザーアイコン表示 -->
     <img src="{{ asset('images/icon1.png') }}">
-    <button type="submit" class="btn btn-post"><img src="{{ asset('images/post.png') }}"></button>
+    <button type="submit" class="btn btn-post"><img src="{{ asset('images/post.png') }}" width="32" height="32"></button>
 </form>
 
 
@@ -22,7 +22,7 @@
     <p>{{ $post->post }}</p>
 
     <!-- 編集ボタン -->
-    <button class="btn btn-primary js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}"></button>
+    <button class="btn btn-primary js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}" width="32" height="32" ></button>
 
     <!-- モーダル -->
     <div class="modal js-modal">
@@ -32,7 +32,7 @@
                @csrf
                <input type="hidden" name="_method" value="PUT">
                <textarea name="post" id="edited_post" maxlength="150">{{ $post->post }}</textarea>
-               <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}"></button>
+               <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32" ></button>
            </form>
            <button class="js-modal-close">Close</button>
        </div>
@@ -43,10 +43,12 @@
     <form method="POST" action="{{ route('posts.destroy', ['post_id' => $post->id]) }}">
         @csrf
         <input type="hidden" name="_method" value="DELETE">
-        <button type="submit" class="btn btn-danger"><img src="{{ asset('images/trash-h.png') }}"></button>
+        <button type="submit" class="btn btn-danger"><img src="{{ asset('images/trash-h.png') }}" width="32" height="32"></button>
     </form>
    </div>
 @endforeach
+
+
 
 
 <!-- 投稿一覧を表示 -->
