@@ -8,6 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -32,32 +33,40 @@
   <!-- BootstrapのJS読み込み -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <header>
-       <div id="head">
-             <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
-         <div class="nav-open">
-             <p class="header-p-white">{{ Auth::user()->username }}さん</p>
-            <nav>
-                <button class="menu-btn"></button>
-                <img src="{{ asset('images/icon1.png') }}">
-                <!-- アコーディオンメニュー -->
-                <div class=“accordion” >
-                    <div class=“accordion-header”>
-                        <button class="menu-btn"></button>
-                        <!-- クリックして表示される文章 -->
-                        <div class=“accordion-content”>
-                            <ul>
-                                <li class="li-first"><a href="/top"><p class="header-p-gray">HOME</p></a></li>
-                                <li class="li-second"><a href="/profile/update"><p class="header-p-white">プロフィール編集</p></a></li>
-                                <li class="li-first"><a href="/logout"><p class="header-p-gray">ログアウト</p></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-         </div>
+
+<header>
+  <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
+    <div class="accordion">
+      <div class="accordion-container">
+        <div class="accordion-item">
+
+           <p class="header-p-white">{{ Auth::user()->username }}さん</p>
+           @if(Auth::user()->images)
+<img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+@else
+<img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+@endif
+          <div class="accordion-title js-accordion-title">
+          </div>
+          <!--/.accordion-title-->
+        </div>
+        <!-- /.accordion-item -->
       </div>
-    </header>
+      <!-- /.accordion-container -->
+    </div>
+    <!-- .accordion -->
+</header>
+
+<div class="accordion-content">
+  <nav>
+      <ul>
+          <li class="nav-item"><a href="/top">HOME</a></li>
+          <li class="nav-item"><a href="/profile/update">プロフィール編集</a></li>
+          <li class="nav-item"><a href="/logout">ログアウト</a></li>
+        <ul>
+      </ul>
+  </nav>
+</div>
 
 
 

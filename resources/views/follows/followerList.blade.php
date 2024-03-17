@@ -3,6 +3,20 @@
 @section('content')
 
 
+<h3>Folower List</h3>
+<div class="follower-posts">
+    @foreach(Auth::user()->followers as $follower)
+        @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)
+            <div class="post">
+                <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
+                 <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
+                </a>
+            </div>
+        @endforeach
+    @endforeach
+</div>
+
+
 <div class="follower-posts">
     @foreach(Auth::user()->followers as $follower)
         @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)

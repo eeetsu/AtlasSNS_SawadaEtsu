@@ -1,15 +1,12 @@
+//アコーディオンメニュー
 $(function () {
-  $('.menu-btn').on('click', function () {
-    // クリックでコンテンツを展開/閉じる
-    $(this).next('.accordion-content').slideToggle(200);
-    $(this).toggleClass('open');
-    // 他のコンテンツを閉じる
-    $('.menu-btn').not($(this)).removeClass('open');
-    //$('.accordion-content').not($(this).next()).slideUp();
+  // タイトルをクリックすると
+  $(".js-accordion-title").on("click", function () {
+    // クリックした次の要素を開閉
+    $(".accordion-content").slideToggle(300);
+    // タイトルにopenクラスを付け外しして矢印の向きを変更
+    $(this).toggleClass("open", 300);
   });
-
-  // 初期状態でアコーディオンメニューを非表示にする
-  $('.accordion-content').hide();
 });
 
 
@@ -17,38 +14,30 @@ $(function () {
 
 
 
-
-//$('.parent').click(function(){
-//    $('.child').slideToggle();
+//アトラスキッチンより（参考）
+//アコーディオンメニュー
+//$(document).ready(function () {
+//  $('.accordion-title').click(function () {
+//    $(this).toggleClass('active');
+//    $(this).next('.accordion-content').slideToggle();
+//  });
 //});
 
-
-
+// ハンバーガーメニュー
 //$(function () {
-//  $('.accordion-menu').click(function () {
-//ボタン（'.accordion-menu'）をタップすると、
+//  $('.menu-trigger').click(function () {
 //    $(this).toggleClass('active');
-//タップしたボタン（'.accordion-menu'）に（.active）を追加・削除する。
 //    if ($(this).hasClass('active')) {
-//もし、ボタン（'.accordion-menu'）に（.active）があれば、
-//      $('.nav').addClass('active');
-//(.g-navi)にも（.active）を追加する。
+//      $('.g-navi').addClass('active');
 //    } else {
-//それ以外の場合は、
-//      $('.nav').removeClass('active');
-//(.g-navi)にある（.active）を削除する。
+//      $('.g-navi').removeClass('active');
 //    }
 //  });
-//  $('accordion-title js-accordion-title').click(function () {
-//各メニューリンク（.nav-wrapper ul li a）をタップすると、
-//    $('accordion-content').removeClass('active');
-//ボタン（.menu-trigger）にある（.active）を削除する。
-//    $('.nav').removeClass('active');
-//(.g-navi)にある（.active）も削除する。
+//  $('.nav-wrapper ul li a').click(function () {
+//    $('.menu-trigger').removeClass('active');
+//    $('.g-navi').removeClass('active');
 //  });
 //});
-
-
 
 
 
@@ -80,9 +69,6 @@ $(function () {
     return false;
   });
 });
-
-
-
 
 
 

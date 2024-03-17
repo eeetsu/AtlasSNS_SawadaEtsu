@@ -8,7 +8,11 @@
         <textarea name="post" id="post" placeholder="投稿内容を入力してください." maxlength="150"></textarea>
     </div>
     <!-- ログインユーザーのユーザーアイコン表示 -->
-    <img src="{{ asset('images/icon1.png') }}">
+    @if(Auth::user()->images)
+<img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+@else
+<img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+@endif
     <button type="submit" class="btn btn-post"><img src="{{ asset('images/post.png') }}" width="32" height="32"></button>
 </form>
 

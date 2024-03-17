@@ -7,7 +7,11 @@
     {!! Form::open(['url'=>'/profile/update','enctype'=>'multipart/form-data', 'method'=>'POST']) !!}
     @csrf
     {{Form::hidden('id',Auth::user()->id)}}
-    <img src="{{ asset('images/icon1.png') }}">
+    @if(Auth::user()->images)
+<img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+@else
+<img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+@endif
     <div class="update-form">
       <div class="update-block">
        <!--ユーザー名-->
@@ -47,7 +51,7 @@
           @enderror
       </div>
     <div class="update-block">
-      <!--自己紹介（任意）-->
+      <!--自己紹介-->
      <label for="name">bio</label>
      <input type="text" name="bio" value="{{Auth::user()->bio}}">
       <!-- バリデーションエラーメッセージを表示 -->
@@ -56,7 +60,7 @@
        @enderror
     </div>
     <div class="update-block">
-      <!--アイコン画像アップロード（任意）-->
+      <!--アイコン画像アップロード-->
       <label for="name">icon image</label>
       <input type="file" name="images">
       <!-- バリデーションエラーメッセージを表示 -->

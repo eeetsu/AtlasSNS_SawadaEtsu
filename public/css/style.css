@@ -61,15 +61,81 @@ a {
 
 /* アコーディオンメニュー */
 
-.nav-open {
-    display: flex;
-    position: absolute;
-    top: 65%;
-    left: 70%;
-    width: 200px;
+.accordion {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    max-width: 300px;
+    position: relative;
+    width: 100%;
 }
 
-.li-first {
+.accordion-title {
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.accordion-content {
+    padding: 10px 20px;
+    display: none;
+
+}
+
+
+.accordion-content p {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* タイトルの背景色 */
+.accordion-item:nth-of-type(1) .accordion-title {
+    background-color: #186AC9;
+}
+
+
+/* コンテンツボックスの枠線 */
+.accordion-item:nth-of-type(1) .accordion-content {}
+
+
+
+/* 矢印 */
+.accordion-title {
+    position: relative;
+}
+
+.accordion-title::after {
+    border-right: solid 2px #fff;
+    border-top: solid 2px #fff;
+    content: "";
+    display: flex;
+    height: 8px;
+    position: absolute;
+    right: 25px;
+    top: 38%;
+    transform: rotate(135deg);
+    transition: transform .3s ease-in-out, top .3s ease-in-out;
+    width: 8px;
+}
+
+.accordion-title.open::after {
+    top: 45%;
+    transform: rotate(-45deg);
+}
+
+/* accordion-contentにflexを当てたい */
+.accordion-content::after {
+    display: none;
+}
+
+.accordion-content.open::after {
+    display: flex;
+}
+
+/* accordion-contentにflexを当てたい */
+
+.nav-item {
     padding: 20px;
     border: 1px solid;
     white-space: nowrap;
@@ -78,75 +144,12 @@ a {
     background: #fff;
 }
 
-.li-second {
-    padding: 20px;
-    border: 1px solid;
-    white-space: nowrap;
-    text-align: center;
-    color: black;
-    background: navy;
+.nav-item:hover {
+    background-color: navy;
 }
 
 
-.accordion-container {
-    display: flex;
-    position: relative;
-}
 
-.menu-btn {
-    display: flex;
-    font-size: 1.25rem;
-    padding: 10px;
-    padding-left: 10px;
-    width: 50px;
-    background-color: transparent;
-    color: #fff;
-    position: relative;
-}
-
-.accordion-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    /* ヘッダーの直下に表示 */
-    width: 100%;
-    height: auto;
-    background-color: #fff;
-}
-
-.menu-btn::after {
-    content: '>';
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    right: 10px;
-    /* アイコンの右側に配置 */
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-}
-
-.menu-btn.open+.accordion-content {
-    display: block;
-}
-
-.menu-btn.open::after {
-    transform: rotate(90deg);
-}
-
-
-.accordion-content {
-    display: none;
-}
-
-.header-p-white {
-    font-weight: hold;
-    color: #fff;
-}
-
-.header-p-gray {
-    font-weight: hold;
-    color: gray;
-}
 
 
 /* モーダルのスタイル */
