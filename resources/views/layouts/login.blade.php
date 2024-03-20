@@ -34,71 +34,80 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Title Here</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
 <header>
   <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
+
+  <div class="accordion-box">
     <div class="accordion">
       <div class="accordion-container">
         <div class="accordion-item">
-
-           <p class="header-p-white">{{ Auth::user()->username }}さん</p>
-           @if(Auth::user()->images)
-<img src="{{ asset('storage/images/' . Auth::user()->images) }}">
-@else
-<img src="{{ asset('storage/images/' . Auth::user()->image) }}">
-@endif
-          <div class="accordion-title js-accordion-title">
-          </div>
+          <h3 class="header-p-white">{{ Auth::user()->username }}　さん</h3>
+          <button class="accordion-title js-accordion-title">
+          </button>
           <!--/.accordion-title-->
+          @if(Auth::user()->images)
+            <img src="{{ asset('storage/images/' . Auth::user()->images) }}" class="accordion-img">
+          @else
+            <img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+          @endif
         </div>
         <!-- /.accordion-item -->
       </div>
       <!-- /.accordion-container -->
     </div>
     <!-- .accordion -->
+  </div>
+
+  <div class="accordion-content">
+    <nav>
+      <ul>
+        <li class="nav-item"><a href="/top">HOME</a></li>
+        <li class="nav-item"><a href="/profile/update">プロフィール編集</a></li>
+        <li class="nav-item"><a href="/logout">ログアウト</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<div class="accordion-content">
-  <nav>
-      <ul>
-          <li class="nav-item"><a href="/top">HOME</a></li>
-          <li class="nav-item"><a href="/profile/update">プロフィール編集</a></li>
-          <li class="nav-item"><a href="/logout">ログアウト</a></li>
-        <ul>
-      </ul>
-  </nav>
+@if(Auth::user()->images=="dawn.png")
+  <img src="{{ asset('images/icon1.png') }}">
+@else
+@endif
+
+<div id="row">
+  <div id="container">
+    @yield('content')
+  </div>
+  <div id="side-bar">
+    <div id="confirm">
+      <p>{{ Auth::user()->username }}さん</p>
+      <div>
+        <p>フォロー数</p>
+        <p>{{ count(Auth::user()->followings ?? []) }}名</p>
+      </div>
+      <p class="btn"><a class="btn btn-primary" href="{{ asset('/follow-list') }}">フォローリスト</a></p>
+      <div>
+        <p>フォロワー数</p>
+        <p>{{ count(Auth::user()->followers ?? []) }}名</p>
+      </div>
+      <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
+    </div>
+    <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>
+  </div>
 </div>
 
+<footer>
+</footer>
 
-
-        @if(Auth::user()->images=="dawn.png")
-        <img src="{{ asset('images/icon1.png') }}">
-        @else
-        @endif
-
-            <div id="row">
-                <div id="container">
-                    @yield('content')
-                </div >
-                <div id="side-bar">
-                    <div id="confirm">
-                        <p>{{ Auth::user()->username }}さん</p>
-                        <div>
-                            <p>フォロー数</p>
-                            <p>{{ count(Auth::user()->followings ?? []) }}名</p>
-                        </div>
-                        <p class="btn"><a class="btn btn-primary" href="{{ asset('/follow-list') }}">フォローリスト</a></p>
-                        <div>
-                            <p>フォロワー数</p>
-                            <p>{{ count(Auth::user()->followers ?? []) }}名</p>
-                        </div>
-                        <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}" >フォロワーリスト</a></p>
-                    </div>
-                    <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>
-                </div>
-            </div>
-
-            <footer>
-            </footer>
-
-        </body>
-        </html>
+</body>
+</html>

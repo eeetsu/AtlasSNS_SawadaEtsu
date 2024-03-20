@@ -12,8 +12,6 @@ $(function () {
 
 
 
-
-
 //アトラスキッチンより（参考）
 //アコーディオンメニュー
 //$(document).ready(function () {

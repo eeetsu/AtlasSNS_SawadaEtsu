@@ -14,10 +14,16 @@
     <div>検索ワード： {{ $keyword }}</div>
     @endif
 
-    <div class="user-icons">
+    <div>
         @foreach($users as $user)
+        <div class="user-icons">
+
+          <div class="user-icons-combination">
             <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
             <span>{{ $user->username }}</span>
+          </div>
+
+          <div class="user-icons-follow_btn">
             @if(Auth::user() && Auth::user()->id !== $user->id)
                 @if(Auth::user()->followings->contains('id', $user->id))
                 <form action="{{ route('unfollow', $user->id) }}" method="POST">
@@ -31,6 +37,9 @@
                 </form>
                 @endif
             @endif
+          </div>
+
+        </div>
         @endforeach
     </div>
 </div>

@@ -8,6 +8,7 @@ body {}
 header {
     padding: 10px;
     background: #186AC9;
+
 }
 
 img {
@@ -53,13 +54,161 @@ a {
 #container {
     height: 100%;
     flex: 0 0 80%;
-    border-right: 1px solid #727272;
+    border-right: 1px solid black;
 }
 
 
 
 
+.line {
+    border: none;
+    border-bottom: 5px solid #c0c0c0;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+}
+
+.line img {
+    margin-right: 10px;
+}
+
+.line textarea {
+    flex: 1;
+}
+
+.line .btn-post {
+    margin-left: 10px;
+}
+
+.line-second {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+
+.btn-danger,
+.btn-primary {
+    right: 25%;
+}
+
+
+
+.btn-danger:hover img {
+    content: url("{{ asset('/images/trash.png') }}");
+}
+
+
+
+.post-time {
+    position: absolute;
+    right: 25%;
+}
+
+
+
+.login-user-posts {
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+}
+
+.post {
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+}
+
+.post-user {
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+}
+
+.p-username {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.p-post {
+    display: block;
+    margin-top: 10px;
+}
+
+.follow-list-icon,
+.follower-list-icon {
+    display: flex;
+    height: 100%;
+    flex: 0 0 80%;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 1px solid black;
+}
+
+.follow-posts-icon,
+.follower-posts-icon {
+    display: flex;
+}
+
+.follow-posts-icon a,
+.follower-posts-icon a {
+    margin-right: 10px;
+}
+
+.user-icons {
+
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.user-icons-combination {
+    width: 20%;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.user-icons-follow_btn {
+    margin-left: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+
+
+
 /* アコーディオンメニュー */
+
+.header-p-white,
+.accordion-title,
+.accordion-img {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.header-p-white {
+    margin: 0px 20px 0px 0px;
+}
+
+.header-p-white {
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.js-accordion-title {}
+
+
+.accordion-box {
+    position: fixed;
+    right: 0;
+    top: 4%;
+}
 
 .accordion {
     margin-left: auto;
@@ -70,23 +219,57 @@ a {
     width: 100%;
 }
 
+/* 矢印 */
 .accordion-title {
+    position: relative;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-    padding: 10px 20px;
+
+
+    font-weight: bold;
 }
+
+.accordion-title::after {
+    border-right: solid 2px #fff;
+    border-top: solid 2px #fff;
+    content: "";
+    display: flex;
+    height: 8px;
+    right: 25px;
+    top: 38%;
+    transform: rotate(135deg);
+    transition: transform .3s ease-in-out, top .3s ease-in-out;
+    width: 8px;
+}
+
+
+.accordion-title.open::after {
+    top: 45%;
+    transform: rotate(-45deg);
+}
+
 
 .accordion-content {
     padding: 10px 20px;
     display: none;
-
+    width: 21%;
+    position: fixed;
+    right: 0;
 }
 
 
 .accordion-content p {
     font-size: 13px;
     line-height: 1.5;
+}
+
+.accordion-item {
+    text-align: right 10%;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    z-index: 1000;
 }
 
 /* タイトルの背景色 */
@@ -100,40 +283,14 @@ a {
 
 
 
-/* 矢印 */
-.accordion-title {
-    position: relative;
-}
-
-.accordion-title::after {
-    border-right: solid 2px #fff;
-    border-top: solid 2px #fff;
-    content: "";
-    display: flex;
-    height: 8px;
-    position: absolute;
-    right: 25px;
-    top: 38%;
-    transform: rotate(135deg);
-    transition: transform .3s ease-in-out, top .3s ease-in-out;
-    width: 8px;
-}
-
-.accordion-title.open::after {
-    top: 45%;
-    transform: rotate(-45deg);
-}
-
 /* accordion-contentにflexを当てたい */
 .accordion-content::after {
     display: none;
+    z-index: 30;
 }
 
-.accordion-content.open::after {
-    display: flex;
-}
+.accordion-content.open::after {}
 
-/* accordion-contentにflexを当てたい */
 
 .nav-item {
     padding: 20px;
@@ -143,6 +300,8 @@ a {
     color: black;
     background: #fff;
 }
+
+
 
 .nav-item:hover {
     background-color: navy;
