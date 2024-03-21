@@ -102,7 +102,9 @@
       </div>
       <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
     </div>
-    <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>
+    <div class="btn-search">
+      <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>
+    </div>
   </div>
 </div>
 

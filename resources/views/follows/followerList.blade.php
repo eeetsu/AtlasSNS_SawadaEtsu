@@ -10,7 +10,7 @@
     <div class="follower-posts-icon">
         @foreach(Auth::user()->followers as $follower)
           @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)
-            <div class="post">
+            <div class="post-item">
                 <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
                     <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
                 </a>

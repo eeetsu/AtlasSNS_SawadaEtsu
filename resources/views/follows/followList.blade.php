@@ -15,7 +15,7 @@
       @foreach($follows as $follow)
           @if($follow->id !== Auth::id())
               @foreach($follow->posts()->orderBy('created_at', 'desc')->get() as $post)
-                  <div class="post">
+                  <div class="post-item">
                       <a href="{{ route('follow.profile', ['user_id' => $follow->id]) }}" class="btn" enctype="multipart/form-data">
                           <img src="{{ asset('storage/images/' . $follow->images) }}" alt="">
                       </a>

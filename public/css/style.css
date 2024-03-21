@@ -97,6 +97,11 @@ a {
     display: block;
 }
 
+.btn-search {
+    padding: 10px;
+    margin: 10px;
+    border-top: 1px solid black;
+}
 
 .post-time {
     position: absolute;
@@ -114,6 +119,12 @@ a {
 
 .post {
     border-bottom: 1px solid black;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+}
+
+.post-item {
     display: flex;
     padding: 10px;
     margin: 10px;
@@ -143,7 +154,8 @@ a {
     flex: 0 0 80%;
     padding: 10px;
     margin: 10px;
-    margin-bottom: 1px solid black;
+    border-bottom: 1px solid black;
+    /* 下線を追加 */
 }
 
 .follow-posts-icon,
