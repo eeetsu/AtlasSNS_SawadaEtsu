@@ -54,6 +54,7 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">
                          <img class="normal-img" src="{{ asset('images/trash-h.png') }}" width="32" height="32">
+                         <img class="hover-img" src="{{ asset('images/trash.png') }}" width="32" height="32">
                         </button>
                     </form>
                 </table>

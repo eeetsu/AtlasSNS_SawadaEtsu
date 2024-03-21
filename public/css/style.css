@@ -85,18 +85,17 @@ a {
     border-bottom: 1px solid black;
 }
 
-
-.btn-danger,
-.btn-primary {
-    right: 25%;
+.btn-danger .hover-img {
+    display: none;
 }
 
-
-
-.btn-danger:hover img {
-    content: url("{{ asset('/images/trash.png') }}");
+.btn-danger:hover .normal-img {
+    display: none;
 }
 
+.btn-danger:hover .hover-img {
+    display: block;
+}
 
 
 .post-time {
