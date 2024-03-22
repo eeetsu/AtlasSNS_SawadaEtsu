@@ -11,6 +11,7 @@
             @else
             <img src="{{ asset('storage/images/' . Auth::user()->image) }}">
         @endif
+        <!-- ログインユーザーの投稿欄 -->
             <div>
                 <textarea name="post" id="post" placeholder="投稿内容を入力してください." maxlength="150"></textarea>
             </div>
@@ -43,7 +44,7 @@
                                     <textarea name="post" id="edited_post" maxlength="150">{{ $latestPost->post }}</textarea>
                                     <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32" class="btn-primary"></button>
                                 </form>
-                                <button class="js-modal-close">Close</button>
+
                             </div>
                         </div>
                     </div>
@@ -53,8 +54,8 @@
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">
-                         <img class="normal-img" src="{{ asset('images/trash-h.png') }}" width="32" height="32">
-                         <img class="hover-img" src="{{ asset('images/trash.png') }}" width="32" height="32">
+                            <img class="normal-img" src="{{ asset('images/trash-h.png') }}" width="32" height="32">
+                            <img class="hover-img" src="{{ asset('images/trash.png') }}" width="32" height="32">
                         </button>
                     </form>
                 </table>

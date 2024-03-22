@@ -95,12 +95,12 @@
         <p>フォロー数</p>
         <p>{{ count(Auth::user()->followings ?? []) }}名</p>
       </div>
-      <p class="btn"><a class="btn btn-primary" href="{{ asset('/follow-list') }}">フォローリスト</a></p>
+      <p class="btn-side-bar"><a class="btn btn-primary" href="{{ asset('/follow-list') }}">フォローリスト</a></p>
       <div>
         <p>フォロワー数</p>
         <p>{{ count(Auth::user()->followers ?? []) }}名</p>
       </div>
-      <p class="btn"><a class="btn btn-primary" href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
+      <p class="btn-side-bar"><a class="btn btn-primary" href="{{ asset('/follower-list') }}">フォロワーリスト</a></p>
     </div>
     <div class="btn-search">
       <p class="btn"><a class="btn btn-primary" href="{{ asset('/search') }}">ユーザー検索</a></p>

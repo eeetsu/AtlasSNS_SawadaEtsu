@@ -18,6 +18,11 @@ img {
 .btn {
     padding: 6px 12px;
     font-size: 6%;
+    margin: 0 0 0 auto;
+}
+
+.btn-side-bar {
+    text-align: right;
 }
 
 
@@ -58,6 +63,11 @@ a {
 }
 
 
+textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+}
 
 
 .line {
@@ -103,12 +113,21 @@ a {
     border-top: 1px solid black;
 }
 
+
+
 .post-time {
     position: absolute;
     right: 25%;
 }
 
+.btn-primary {
+    margin-right: 10px;
+}
 
+.btn-danger {
+    margin-left: 10px;
+    relative: left;
+}
 
 .login-user-posts {
     border-bottom: 1px solid black;
@@ -180,6 +199,22 @@ a {
     width: 20%;
     padding: 10px;
     margin: 10px;
+}
+
+
+.login-user-posts {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.login-user-posts-combination {
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
 }
 
 
