@@ -4,76 +4,95 @@
 
 <div class="container">
   <div class="update">
-    {!! Form::open(['url'=>'/profile/update','enctype'=>'multipart/form-data', 'method'=>'POST']) !!}
-    @csrf
-    {{Form::hidden('id',Auth::user()->id)}}
-    @if(Auth::user()->images)
-<img src="{{ asset('storage/images/' . Auth::user()->images) }}">
-@else
-<img src="{{ asset('storage/images/' . Auth::user()->image) }}">
-@endif
-    <div class="update-form">
-      <div class="update-block">
-       <!--ユーザー名-->
-       <label for="name">user name</label>
-       <!--ログインユーザーの情報をvalueを使って初期値に設定-->
-       <input type="text" name="username" value="{{Auth::user()->username}}">
-       <!-- バリデーションエラーメッセージを表示 -->
-       @error('username')
-        <span class="text-danger">{{ $message }}</span>
-       @enderror
-      </div>
-      <div class="update-block">
-      <!--メールアドレス-->
-      <label for="mail">mail address</label>
-      <input type="email" name="mail" value="{{Auth::user()->mail}}">
-      <!-- バリデーションエラーメッセージを表示 -->
-       @error('mail')
-        <span class="text-danger">{{ $message }}</span>
-       @enderror
-      </div>
-      <div class="update-block">
-        <!--パスワード-->
-          <label for="password">new password</label>
-          <input type="password" name="password" value="" >
+        <div class="update-form-icon">
+          {!! Form::open(['url'=>'/profile/update','enctype'=>'multipart/form-data', 'method'=>'POST']) !!}
+            @csrf
+            {{Form::hidden('id',Auth::user()->id)}}
+            @if(Auth::user()->images)
+              <img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+            @else
+              <img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+            @endif
+        </div>
+
+      <div class="update-form">
+        <div class="update-block">
+          <!--ユーザー名-->
+          <div class="update-label">
+            <label for="name">user name</label>
+          </div>
+          <!--ログインユーザーの情報をvalueを使って初期値に設定-->
+          <div>
+            <input type="text" name="username" value="{{Auth::user()->username}}" class="update-block-form">
+          </div>
           <!-- バリデーションエラーメッセージを表示 -->
-         @error('password')
-          <span class="text-danger">{{ $message }}</span>
-         @enderror
-      </div>
-      <div class="update-block">
-        <!--パスワード確認用-->
-          <label for="password_confirmation">password confirmation</label>
-          <input type="password" name="password_confirmation" value="" >
+          @error('username')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        <div class="update-block">
+          <!--メールアドレス-->
+          <div class="update-label">
+            <label for="mail">mail address</label>
+          </div>
+          <input type="email" name="mail" value="{{Auth::user()->mail}}" class="update-block-form">
+          <!-- バリデーションエラーメッセージを表示 -->
+          @error('mail')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        <div class="update-block">
+          <!--パスワード-->
+          <div class="update-label">
+            <label for="password">new password</label>
+          </div>
+          <input type="password" name="password" value="" class="update-block-form">
+          <!-- バリデーションエラーメッセージを表示 -->
+          @error('password')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        <div class="update-block">
+          <!--パスワード確認用-->
+          <div class="update-label">
+            <label for="password_confirmation">password confirmation</label>
+          </div>
+          <input type="password" name="password_confirmation" value="" class="update-block-form">
           <!-- バリデーションエラーメッセージを表示 -->
           @error('password_confirmation')
-           <span class="text-danger">{{ $message }}</span>
+            <span class="text-danger">{{ $message }}</span>
           @enderror
-      </div>
-    <div class="update-block">
-      <!--自己紹介-->
-     <label for="name">bio</label>
-     <input type="text" name="bio" value="{{Auth::user()->bio}}">
-      <!-- バリデーションエラーメッセージを表示 -->
-       @error('bio')
-        <span class="text-danger">{{ $message }}</span>
-       @enderror
-    </div>
-    <div class="update-block">
-      <!--アイコン画像アップロード-->
-      <label for="name">icon image</label>
-      <input type="file" name="images">
-      <!-- バリデーションエラーメッセージを表示 -->
-        @error('images')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <!--押したらデータが更新されるページへ--><!--ログインしているユーザーのidを取得-->
-    <input type="submit" class="btn btn-danger">
-    {{Form::token()}}
-    {!! Form::close() !!}
-    </div>
+        </div>
+        <div class="update-block">
+          <!--自己紹介-->
+          <div class="update-label">
+            <label for="name">bio</label>
+          </div>
+          <input type="text" name="bio" value="{{Auth::user()->bio}}" class="update-block-form">
+          <!-- バリデーションエラーメッセージを表示 -->
+          @error('bio')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        <div class="update-block">
+          <!--アイコン画像アップロード-->
+          <div class="update-label">
+            <label for="name">icon image</label>
+          </div>
+          <input type="file" name="images" class="update-block-form">
+          <!-- バリデーションエラーメッセージを表示 -->
+          @error('images')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
 
+        <!--押したらデータが更新されるページへ--><!--ログインしているユーザーのidを取得-->
+        <div class="update-btn">
+          <button type="submit" class="btn btn-danger">更新</button>
+        </div>
+        {{Form::token()}}
+       {!! Form::close() !!}
+    </div>
   </div>
 </div>
 

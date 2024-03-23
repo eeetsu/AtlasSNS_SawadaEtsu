@@ -115,6 +115,10 @@ textarea {
     margin: 20px 0 0 auto;
 }
 
+.btn-follow {
+    margin: 50px 0 0 auto;
+}
+
 .btn-search {
     padding: 10px;
     margin: 10px;
@@ -293,7 +297,71 @@ textarea {
     padding-left: 10px;
 }
 
+.user-profile {
+    display: flex;
+    flex-direction: column;
+}
 
+.name-bio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bio {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.h-bio {
+    margin: 10px 0px 10px 30px;
+}
+
+.h-bio-second {
+    margin: 10px 0px 10px 50px;
+}
+
+.h-user-name {
+    margin: 0px 0px 0px 30px;
+}
+
+.h-user-name-second {
+    margin: 0px 65px 0px 0px;
+}
+
+.update {
+    display: flex;
+    align-items: center;
+}
+
+.update-form {
+    margin: 50px 0px 0px 0px;
+}
+
+.update-form-icon {
+    margin: 70px 30px 0px 300px;
+    margin-bottom: auto;
+}
+
+.update-block {
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-label {
+    margin: 0px 20px 0px 0px;
+}
+
+.update-block-form {
+    margin: 0px 0px 0px 20px;
+}
+
+.update-btn {
+    display: flex;
+    justify-content: center;
+}
 
 /* アコーディオンメニュー */
 

@@ -1,39 +1,59 @@
 @extends('layouts.login')
 
 @section('content')
+
 <div class="container">
-    <!-- アイコンユーザーアイコンの表示 -->
-    <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
-    <!-- アイコンユーザー名 -->
-    <h2>name  {{ $user->username }}</h2>
+    <div class="line">
+        <!-- アイコンユーザーアイコンの表示 -->
+        <div>
+          <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
+        </div>
+        <!-- アイコンユーザー名 -->
+        <div class="user-profile">
+            <div class="name-bio">
+                <h4 class="h-user-name">name</h4>
+                </br>
+                <h4 class="h-user-name-second">{{ $user->username }}</h4>
+            </div>
+            <!-- アイコンユーザーの自己紹介文 -->
+            <div class="bio">
+                <h4 class="h-bio">bio</h4>
+                </br>
+                <h3 class="h-bio-second">{{ $user->bio }}</h3>
+            </div>
+        </div>
 
-    <!-- アイコンユーザーの自己紹介文 -->
-    <h2>bio  {{ $user->bio }}</h2>
-
-    <!-- フォロー機能 -->
-    @if(Auth::user() && Auth::user()->id !== $user->id)
-    @if(Auth::user()->followings->contains('id', $user->id))
-        <form action="{{ route('unfollow', $user->id) }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-danger">フォロー解除</button>
-        </form>
-    @else
-        <form action="{{ route('follow', $user->id) }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-primary">フォローする</button>
-        </form>
-    @endif
-    @endif
+        <!-- フォロー機能 -->
+        <div class="btn-follow">
+            @if(Auth::user() && Auth::user()->id !== $user->id)
+            @if(Auth::user()->followings->contains('id', $user->id))
+                <form action="{{ route('unfollow', $user->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">フォロー解除</button>
+                </form>
+            @else
+                <form action="{{ route('follow', $user->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">フォローする</button>
+                </form>
+            @endif
+            @endif
+        </div>
+    </div>
 
     <!-- アイコンのユーザーの投稿一覧履歴 -->
     <div class="follow-posts">
         @foreach($user->posts()->orderBy('created_at', 'desc')->get() as $post)
-            <div class="post">
-                <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
-                <p>{{ $user->username }}</p>
-                <h4>{{ $post->post }}</h4>
-                <p>投稿日時：{{ $post->created_at }}</p>
-            </div>
+                <div class="post-second">
+                  <div class="post-content">
+                    <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
+                    <div class="post-info">
+                        <p>{{ $user->username }}</p>
+                        <p>{{ $post->post }}</p>
+                    </div>
+                   <p class="post-time-second">投稿日時：{{ $post->created_at }}</p>
+                  </div>
+                </div>
         @endforeach
     </div>
 </div>
