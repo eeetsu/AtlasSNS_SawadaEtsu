@@ -23,13 +23,17 @@
 <div class="follower-posts">
     @foreach(Auth::user()->followers as $follower)
         @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)
-            <div class="post">
+            <div class="post-second">
+              <div class="post-content">
                 <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
                  <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
                 </a>
-                <p>{{ $post->user->username }}</p>
-                <h4>{{ $post->post }}</h4>
-                <p class="post-time">投稿日時：{{ $post->created_at }}</p>
+                <div class="post-info">
+                    <p class="p-username-second">{{ $post->user->username }}</p>
+                    <p class="p-post-second">{{ $post->post }}</p>
+                </div>
+              </div>
+                <p class="post-time-second">投稿日時：{{ $post->created_at }}</p>
             </div>
         @endforeach
     @endforeach

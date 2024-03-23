@@ -47,6 +47,7 @@
 <header>
   <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
 
+  <!-- アコーディオン -->
   <div class="accordion-box">
     <div class="accordion">
       <div class="accordion-container">

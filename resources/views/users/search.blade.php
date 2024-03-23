@@ -4,15 +4,18 @@
 
 <div class="container">
 <!-- 検索フォームへ飛ぶための追加ボタンを設置！ -->
-    <form action="/search" method="get">
-        @csrf
-        <input type="text" name="keyword" class="form" placeholder="ユーザー名" value="{{ $keyword ?? '' }}">
-        <button type="submit" class="btn btn-search"><img src="{{ asset('images/search.png') }}" width="32" height="32"></button>
-    </form>
-    <!-- 検索ワードが空でない場合のみ表示 -->
-    @if (!empty($keyword))
-    <div>検索ワード： {{ $keyword }}</div>
-    @endif
+    <div class="line">
+      <form action="/search" method="get" class="search">
+          @csrf
+          <input type="text" name="keyword" class="form" placeholder="ユーザー名" value="{{ $keyword ?? '' }}">
+          <button type="submit" class="btn btn-search"><img src="{{ asset('images/search.png') }}" width="32" height="32"></button>
+      </form>
+
+      <!-- 検索ワードが空でない場合のみ表示 -->
+      @if (!empty($keyword))
+      <div>検索ワード： {{ $keyword }}</div>
+      @endif
+    </div>
 
     <div>
         @foreach($users as $user)
