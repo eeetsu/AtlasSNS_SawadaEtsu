@@ -1,14 +1,21 @@
 @charset "utf-8";
 
-html {}
+/* 共通パーツ */
+html {
+    font-size: 16px;
+    /* font-size:文字サイズ */
+}
 
-body {}
+body {
+    font-size: 1rem;
+    font-family: "YuGothic", Yu Gothic, sans-serif;
+    /* font-family:文字のスタイル */
+}
 
 /* header */
 header {
     padding: 10px;
     background: #186AC9;
-
 }
 
 img {
@@ -25,20 +32,34 @@ img {
     text-align: right;
 }
 
-
 p {
     color: black;
 }
 
-
 a {
     color: #fff;
-
 }
 
+.s-gradation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+}
 
+.d-gradation {
+    width: 100px;
+    height: 100px;
+    background-color: #4773ff;
+    margin: 0 auto;
+}
 
-
+.logout-mail-form {
+    margin: 10px;
+    padding: 10px;
+}
 
 /* main content */
 #head {
@@ -50,7 +71,6 @@ a {
     position: relative;
 }
 
-
 #row {
     display: flex;
     flex-flow: row wrap;
@@ -60,19 +80,28 @@ a {
     height: 100%;
     flex: 0 0 80%;
     border-right: 1px solid black;
+    justify-content: flex-end;
+    display: flex;
 }
 
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+}
+
+#side-bar {
+    margin-right: auto;
+    margin-left: auto;
+}
 
 textarea {
-    width: 800px;
-    height: 80px;
+    width: 100%;
     border: 1px solid #ccc;
     outline: none;
     padding: 10px;
     margin: 10px;
 }
-
-
 
 .line {
     border: none;
@@ -131,7 +160,7 @@ textarea {
 
 .post-time {
     position: absolute;
-    right: 25%;
+    right: 22%;
     margin-top: -6%;
 }
 
@@ -197,7 +226,6 @@ textarea {
     margin-top: -4%;
 }
 
-
 .follow-post {
     border-bottom: 1px solid black;
     display: flex;
@@ -257,7 +285,6 @@ textarea {
 }
 
 .user-icons {
-
     display: flex;
     width: 100%;
     padding: 10px;
@@ -270,8 +297,6 @@ textarea {
     margin: 10px 10px 10px 400px;
     align-items: center;
 }
-
-
 
 .login-user-posts {
     display: flex;
@@ -288,7 +313,6 @@ textarea {
     width: 80%;
 }
 
-
 .user-icons-follow_btn {
     margin-right: 300px;
     display: flex;
@@ -299,34 +323,37 @@ textarea {
 
 .user-profile {
     display: flex;
-    flex-direction: column;
 }
 
 .name-bio {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 .bio {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
 }
 
 .h-bio {
-    margin: 10px 0px 10px 30px;
+    margin: 10px 0;
+    padding-right: 30px;
 }
 
 .h-bio-second {
-    margin: 10px 0px 10px 50px;
+    margin: 10px 0 10px 50px;
 }
 
 .h-user-name {
-    margin: 0px 0px 0px 30px;
+    margin: 0;
+    padding-left: 0;
 }
 
 .h-user-name-second {
-    margin: 0px 65px 0px 0px;
+    margin: 0;
+    padding-right: 65px;
 }
 
 .update {
@@ -364,7 +391,6 @@ textarea {
 }
 
 /* アコーディオンメニュー */
-
 .header-p-white,
 .accordion-title,
 .accordion-img {
@@ -374,16 +400,11 @@ textarea {
 
 .header-p-white {
     margin: 0px 20px 0px 0px;
-}
-
-.header-p-white {
     color: #fff;
     font-weight: bold;
 }
 
-
 .js-accordion-title {}
-
 
 .accordion-box {
     position: fixed;
@@ -406,8 +427,6 @@ textarea {
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-
-
     font-weight: bold;
 }
 
@@ -424,21 +443,19 @@ textarea {
     width: 8px;
 }
 
-
 .accordion-title.open::after {
     top: 45%;
     transform: rotate(-45deg);
 }
 
-
 .accordion-content {
     padding: 10px 20px;
     display: none;
-    width: 21%;
+    width: 100%;
+    /* 変更 */
     position: fixed;
     right: 0;
 }
-
 
 .accordion-content p {
     font-size: 13px;
@@ -458,11 +475,8 @@ textarea {
     background-color: #186AC9;
 }
 
-
 /* コンテンツボックスの枠線 */
 .accordion-item:nth-of-type(1) .accordion-content {}
-
-
 
 /* accordion-contentにflexを当てたい */
 .accordion-content::after {
@@ -471,7 +485,6 @@ textarea {
 }
 
 .accordion-content.open::after {}
-
 
 .nav-item {
     padding: 20px;
@@ -482,15 +495,9 @@ textarea {
     background: #fff;
 }
 
-
-
 .nav-item:hover {
     background-color: navy;
 }
-
-
-
-
 
 /* モーダルのスタイル */
 .modal-main {
@@ -501,8 +508,8 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
     color: #666666;
     position: fixed;
@@ -549,4 +556,11 @@ textarea {
 .content {
     margin: 0 auto;
     padding: 40px;
+}
+
+/* スマホ用CSS */
+@media screen and (max-width:768px) {
+    header {}
+
+
 }

@@ -11,18 +11,19 @@
         <!-- アイコンユーザー名 -->
         <div class="user-profile">
             <div class="name-bio">
+                <!-- アイコンユーザーの名前 -->
                 <h4 class="h-user-name">name</h4>
-                </br>
-                <h4 class="h-user-name-second">{{ $user->username }}</h4>
-            </div>
-            <!-- アイコンユーザーの自己紹介文 -->
-            <div class="bio">
+                <!-- アイコンユーザーの自己紹介文 -->
                 <h4 class="h-bio">bio</h4>
-                </br>
-                <h3 class="h-bio-second">{{ $user->bio }}</h3>
+            </div>
+
+            <div class="name-bio">
+                <!-- アイコンユーザーの名前 -->
+                <h4 class="h-user-name">{{ $user->username }}</h4>
+                <!-- アイコンユーザーの自己紹介文 -->
+                <h3 class="h-bio">{{ $user->bio }}</h3>
             </div>
         </div>
-
         <!-- フォロー機能 -->
         <div class="btn-follow">
             @if(Auth::user() && Auth::user()->id !== $user->id)
