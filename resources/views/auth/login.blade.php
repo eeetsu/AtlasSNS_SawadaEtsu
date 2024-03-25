@@ -3,15 +3,26 @@
 @section('content')
       <!-- 適切なURLを入力してください -->
       {!! Form::open(['url' => '/login']) !!}
+      <div class="logout-form">
+        <h1 class="atlas">Atlas</h1>
+        <p>Social Network Service</p>
 
-      <p>AtlasSNSへようこそ</p>
-        {{ Form::label('e-mail') }}
-        {{ Form::text('mail',null,['class' => 'input-mail']) }}
-        {{ Form::label('password') }}
-        {{ Form::password('password',['class' => 'input']) }}
-      {{ Form::submit('ログイン') }}
+        <div class="back-color">
+          <p>AtlasSNSへようこそ</p>
 
-      <p><a href="/register">新規ユーザーの方はこちら</a></p>
+            <p class="p-label">mail adress</p>
 
+            {{ Form::text('mail',null,['class' => 'input']) }}
+
+            <p class="p-label">passwod</p>
+
+            {{ Form::password('password',['class' => 'input']) }}
+
+            {{ Form::submit('LOGIN',['class' => 'btn btn-danger']) }}
+
+          <p><a href="/register">新規ユーザーの方はこちら</a></p>
+        </div>
+      </div>
       {!! Form::close() !!}
+
 @endsection

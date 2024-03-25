@@ -18,11 +18,15 @@
   <!--iphoneのアプリアイコン指定-->
   <link rel="apple-touch-icon-precomposed" href="images/atlas.png" />
   <!--OGPタグ/twitterカード-->
+  <!-- BootstrapのCSS読み込み -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- BootstrapのJS読み込み -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   <header>
     <h1><img src="images/atlas.png"></h1>
-    <p>Social Network Service</p>
   </header>
   <div id="container">
     @yield('content')

@@ -1,10 +1,59 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
+body {
     height: 100%;
     background: #186AC9;
+}
+
+
+.logout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+    height: 100vh;
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #FFFF33 0%, #2196F3 40%);
+}
+
+.input {
+    width: 90%;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+p {
+    color: #FFF;
+}
+
+.atlas {
+    color: #FFF;
+}
+
+.label {
+    color: #FFF;
+}
+
+.p-label {
+    text-align: left;
+}
+
+.back-color {
+    background: rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+
+    border-radius: 10px;
 }

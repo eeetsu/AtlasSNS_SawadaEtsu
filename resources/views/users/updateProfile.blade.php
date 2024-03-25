@@ -16,6 +16,7 @@
         </div>
 
       <div class="update-form">
+
         <div class="update-block">
           <!--ユーザー名-->
           <div class="update-label">
@@ -30,6 +31,7 @@
             <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>
+
         <div class="update-block">
           <!--メールアドレス-->
           <div class="update-label">
@@ -41,6 +43,7 @@
             <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>
+
         <div class="update-block">
           <!--パスワード-->
           <div class="update-label">
@@ -52,6 +55,7 @@
             <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>
+
         <div class="update-block">
           <!--パスワード確認用-->
           <div class="update-label">
@@ -63,6 +67,7 @@
             <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>
+
         <div class="update-block">
           <!--自己紹介-->
           <div class="update-label">
@@ -74,6 +79,7 @@
             <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>
+
         <div class="update-block">
           <!--アイコン画像アップロード-->
           <div class="update-label">
@@ -92,7 +98,7 @@
         </div>
         {{Form::token()}}
        {!! Form::close() !!}
-    </div>
+      </div>
   </div>
 </div>
 
