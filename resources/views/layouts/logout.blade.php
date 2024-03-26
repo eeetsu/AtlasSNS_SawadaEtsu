@@ -25,9 +25,7 @@
   <!-- BootstrapのJS読み込み -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  <header>
-    <h1><img src="images/atlas.png"></h1>
-  </header>
+
   <div id="container">
     @yield('content')
   </div>

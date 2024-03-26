@@ -1,14 +1,13 @@
 @extends('layouts.logout')
 
 @section('content')
-      <!-- 適切なURLを入力してください -->
       {!! Form::open(['url' => '/login']) !!}
       <div class="logout-form">
-        <h1 class="atlas">Atlas</h1>
-        <p>Social Network Service</p>
+        <img src="images/atlas.png" width="150" higtht="25">
+        <p class="p-title-first">Social Network Service</p>
 
         <div class="back-color">
-          <p>AtlasSNSへようこそ</p>
+          <p class="p-title">AtlasSNSへようこそ</p>
 
             <p class="p-label">mail adress</p>
 

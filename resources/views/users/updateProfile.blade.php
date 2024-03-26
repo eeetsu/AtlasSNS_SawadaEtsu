@@ -95,7 +95,7 @@
 
         <!--押したらデータが更新されるページへ--><!--ログインしているユーザーのidを取得-->
         <div class="update-btn">
-          <button type="submit" class="btn btn-danger">更新</button>
+          <button type="submit" class="btn btn-danger">　　　更新　　　</button>
         </div>
         {{Form::token()}}
        {!! Form::close() !!}

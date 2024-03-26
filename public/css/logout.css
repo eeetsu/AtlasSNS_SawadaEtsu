@@ -9,6 +9,7 @@ body {
     background: #186AC9;
 }
 
+img {}
 
 .logout-form {
     display: flex;
@@ -23,13 +24,24 @@ body {
 }
 
 .input {
-    width: 90%;
-    margin: 10px;
-    border-radius: 5px;
+    width: 100%;
+    margin: 0px 10px 10px 0px;
+    border-radius: 4px;
     border: none;
 }
 
 p {
+    color: #FFF;
+    text-align: left;
+}
+
+.p-title-first {
+    font-size: 25px;
+    color: #FFF;
+}
+
+.p-title {
+    font-size: 18px;
     color: #FFF;
     text-align: left;
 }
@@ -43,7 +55,9 @@ p {
 }
 
 .p-label {
-    text-align: left;
+    margin: 0px;
+    margin-right: 3%;
+    width: 100%;
 }
 
 .back-color {
@@ -54,7 +68,7 @@ p {
     justify-content: center;
     align-items: center;
     margin: 10px;
-    padding: 20px;
+    padding: 40px;
 
     border-radius: 10px;
 }
@@ -64,6 +78,20 @@ p {
     color: white;
 }
 
+.url-line:hover {
+    text-decoration: none;
+    color: white;
+}
+
 .btn {
-    float: left;
+    margin-left: 20%;
+}
+
+.btn-center {
+    text-align: center;
+    margin-right: 55%;
+}
+
+.inner {
+    margin: 10px 0px 10px 0px;
 }

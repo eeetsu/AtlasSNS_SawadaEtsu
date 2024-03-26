@@ -12,13 +12,14 @@
     </div>
 @endif
 
-<!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register', 'method' => 'POST']) !!}
 <div class="logout-form">
-<h1 class="atlas">Atlas</h1>
-<p>Social Network Service</p>
+<img src="images/atlas.png" width="150" higtht="25">
+<p class="p-title-first">Social Network Service</p>
 
 <div class="back-color">
+<p class="p-title">新規ユーザー登録</p>
+
 <p class="p-label">user name</p>
 {{ Form::text('username',null,['class' => 'input', 'name' => 'username']) }}
 

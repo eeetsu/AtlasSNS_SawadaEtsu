@@ -72,9 +72,9 @@
   <div class="accordion-content">
     <nav>
       <ul>
-        <li class="nav-item"><a href="/top">HOME</a></li>
-        <li class="nav-item"><a href="/profile/update">プロフィール編集</a></li>
-        <li class="nav-item"><a href="/logout">ログアウト</a></li>
+        <li class="nav-item"><a href="/top" class="url-line">HOME</a></li>
+        <li class="nav-item"><a href="/profile/update" class="url-line">プロフィール編集</a></li>
+        <li class="nav-item"><a href="/logout" class="url-line">ログアウト</a></li>
       </ul>
     </nav>
   </div>

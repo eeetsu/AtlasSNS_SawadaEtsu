@@ -18,10 +18,6 @@ header {
     background: #186AC9;
 }
 
-img {
-    size: 60px 70px;
-}
-
 .btn {
     padding: 6px 12px;
     font-size: 6%;
@@ -100,11 +96,13 @@ a {
 }
 
 textarea {
-    width: 100%;
-    border: 1px solid #ccc;
+    width: 700px;
+    height: 80px;
+    border: 1px solid #fff;
     outline: none;
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
+    /* resize: none; */
 }
 
 .line {
@@ -119,9 +117,6 @@ textarea {
     margin-right: 10px;
 }
 
-.line textarea {
-    flex: 1;
-}
 
 .line .btn-post {
     margin-left: 10px;
@@ -164,8 +159,14 @@ textarea {
 
 .post-time {
     position: absolute;
-    right: 22%;
-    margin-top: -6%;
+    right: 25%;
+    margin-top: -5.5%;
+}
+
+.post-time-second {
+    position: absolute;
+    right: 25%;
+    margin-top: -4%;
 }
 
 .btn-primary {
@@ -224,11 +225,7 @@ textarea {
     flex: 1;
 }
 
-.post-time-second {
-    position: absolute;
-    right: 25%;
-    margin-top: -4%;
-}
+
 
 .follow-post {
     border-bottom: 1px solid black;
@@ -411,12 +408,23 @@ textarea {
 .update-btn {
     display: flex;
     justify-content: center;
+    margin-right: 40%;
 }
 
 .text-danger {
     position: absolute;
     text-align: right;
     margin-left: 400px;
+}
+
+.url-line {
+    text-decoration: none;
+    color: grey;
+}
+
+.url-line:hover {
+    text-decoration: none;
+    color: white;
 }
 
 /* アコーディオンメニュー */
@@ -528,6 +536,13 @@ textarea {
     background-color: navy;
 }
 
+.nav-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
 
 /* モーダルのスタイル */
 .modal-main {
