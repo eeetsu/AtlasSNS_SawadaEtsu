@@ -62,11 +62,12 @@
             <label for="password_confirmation">password confirmation</label>
           </div>
           <input type="password" name="password_confirmation" value="" class="update-block-form">
+        </div>
           <!-- バリデーションエラーメッセージを表示 -->
           @error('password_confirmation')
             <span class="text-danger">{{ $message }}</span>
           @enderror
-        </div>
+
 
         <div class="update-block">
           <!--自己紹介-->
@@ -74,23 +75,23 @@
             <label for="name">bio</label>
           </div>
           <input type="text" name="bio" value="{{Auth::user()->bio}}" class="update-block-form">
+        </div>
           <!-- バリデーションエラーメッセージを表示 -->
           @error('bio')
             <span class="text-danger">{{ $message }}</span>
           @enderror
-        </div>
 
         <div class="update-block">
           <!--アイコン画像アップロード-->
           <div class="update-label">
             <label for="name">icon image</label>
           </div>
-          <input type="file" name="images" class="update-block-form">
+          <input type="file" name="images">
+        </div>
           <!-- バリデーションエラーメッセージを表示 -->
           @error('images')
             <span class="text-danger">{{ $message }}</span>
           @enderror
-        </div>
 
         <!--押したらデータが更新されるページへ--><!--ログインしているユーザーのidを取得-->
         <div class="update-btn">

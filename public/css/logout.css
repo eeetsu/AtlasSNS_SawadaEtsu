@@ -31,6 +31,7 @@ body {
 
 p {
     color: #FFF;
+    text-align: left;
 }
 
 .atlas {
@@ -58,6 +59,11 @@ p {
     border-radius: 10px;
 }
 
-a {
-    text-decoration-line: none;
+.url-line {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    float: left;
 }

@@ -18,9 +18,11 @@
 
             {{ Form::password('password',['class' => 'input']) }}
 
+            <div class="btn">
             {{ Form::submit('LOGIN',['class' => 'btn btn-danger']) }}
+            </div>
 
-          <p><a href="/register">新規ユーザーの方はこちら</a></p>
+          <p><a href="/register" class="url-line">新規ユーザーの方はこちら</a></p>
         </div>
       </div>
       {!! Form::close() !!}
