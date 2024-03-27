@@ -46,6 +46,12 @@ p {
     text-align: left;
 }
 
+.username {
+    font-size: 18px;
+    color: #FFF;
+    text-align: left;
+}
+
 .atlas {
     color: #FFF;
 }
