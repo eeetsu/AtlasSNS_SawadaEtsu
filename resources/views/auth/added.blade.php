@@ -8,7 +8,6 @@
         <div class="back-color">
             @if(session('username'))
                 <p class="username">
-
                     {{ session('username') }}さん
                 </p>
             @endif
@@ -22,5 +21,3 @@
             </div>
         </div>
     </div>
-</div>
-@endsection

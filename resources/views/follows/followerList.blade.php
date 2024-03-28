@@ -8,20 +8,23 @@
 
       <!-- フォロワーユーザーアイコン表示 -->
       <div class="follower-list-icon">
-        <h3>Folower List</h3>
+          <h3>Follower List</h3>
           <div class="follower-posts-icon">
               @foreach(Auth::user()->followers as $follower)
-                @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)
-                  <div class="post-item">
-                      <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
-                          <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
-                      </a>
-                  </div>
-                @endforeach
+                  @php
+                      // フォロワーの最新の投稿を取得
+                      $latestPost = $follower->posts()->orderBy('created_at', 'desc')->first();
+                  @endphp
+                  @if ($latestPost)
+                      <div class="post-item">
+                          <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
+                              <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
+                          </a>
+                      </div>
+                  @endif
               @endforeach
           </div>
       </div>
-
       <div class="follower-posts">
           @foreach(Auth::user()->followers as $follower)
               @foreach($follower->posts()->orderBy('created_at', 'desc')->get() as $post)

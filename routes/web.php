@@ -15,8 +15,9 @@
    // return view('welcome');
  //});
 Route::get('/home', 'HomeController@index')->name('home');
-
 Auth::routes();
+
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
 // ログアウト中のページ
 Route::middleware(['guest'])->group(function () {
