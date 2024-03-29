@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="abc">
     <form method="POST" action="{{ route('posts.store') }}" class="line">
         <div>
             @csrf
@@ -17,7 +17,7 @@
             <div>
                 <textarea name="post" id="post" placeholder="投稿内容を入力してください." maxlength="150"></textarea>
             </div>
-        <button type="submit" class="btn btn-post"><img src="{{ asset('images/post.png') }}" width="32" height="32"></button>
+        <button type="submit" class="btn_btn-post"><img src="{{ asset('images/post.png') }}" width="32" height="32"></button>
     </form>
 
 

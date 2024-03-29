@@ -26,6 +26,7 @@ header {
 
 .btn-side-bar {
     text-align: right;
+    margin-bottom: 20px;
 }
 
 p {
@@ -35,6 +36,12 @@ p {
 a {
     color: #fff;
 }
+
+.p-user-name {
+    margin-top: 20px;
+}
+
+
 
 .s-gradation {
     display: flex;
@@ -57,8 +64,10 @@ a {
     padding: 10px;
 }
 
-
-
+.btn_btn-post {
+    background-color: #fff;
+    border: none;
+}
 
 
 /* main content */
@@ -84,10 +93,12 @@ a {
     display: flex;
 }
 
-.container {
+#container.abc {
     padding-right: 15px;
     padding-left: 15px;
     margin-left: auto;
+    padding: 0px;
+    margin: 0px;
 }
 
 #side-bar {
@@ -102,7 +113,7 @@ textarea {
     outline: none;
     padding: 10px;
     margin: 30px;
-    /* resize: none; */
+    resize: none;
 }
 
 .line {
@@ -148,7 +159,7 @@ textarea {
 }
 
 .btn-search {
-    padding: 10px;
+    padding: 20px 60px;
     margin: 10px;
     border-top: 1px solid black;
 }
@@ -243,13 +254,13 @@ textarea {
 .post-user {
     border-bottom: 1px solid black;
     display: flex;
-    padding: 30px 30px 20px 30px;
+    padding: 30px 40px 20px 0px;
     margin: 10px;
 }
 
 .post-second {
     border-bottom: 1px solid black;
-    padding: 30px;
+    padding: 30px 0px 30px 0px;
     margin: 10px;
     display: flex;
     align-items: center;
@@ -301,8 +312,8 @@ textarea {
 
 .login-user-posts {
     display: flex;
-    width: 100%;
-    padding: 30px;
+    width: 98%;
+    padding: 30px 35px 30px 0px;
     margin: 10px;
 }
 
@@ -420,6 +431,7 @@ textarea {
 .url-line {
     text-decoration: none;
     color: grey;
+    padding: inherit;
 }
 
 .url-line:hover {
@@ -436,12 +448,16 @@ textarea {
 }
 
 .header-p-white {
-    margin: 0px 20px 0px 0px;
+    margin: 20px 150px 0px 0px;
     color: #fff;
     font-weight: bold;
-}
 
-.js-accordion-title {}
+    text-align: right 10%;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    z-index: 1000;
+}
 
 .accordion-box {
     position: fixed;
@@ -459,13 +475,19 @@ textarea {
 }
 
 /* 矢印 */
+
+.js-accordion-title {}
+
+
 .accordion-title {
     position: relative;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    border: none;
 }
+
 
 .accordion-title::after {
     border-right: solid 2px #fff;

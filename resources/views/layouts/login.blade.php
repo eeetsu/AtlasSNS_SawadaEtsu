@@ -51,8 +51,8 @@
   <div class="accordion-box">
     <div class="accordion">
       <div class="accordion-container">
+        <h3 class="header-p-white">{{ Auth::user()->username }}　さん</h3>
         <div class="accordion-item">
-          <h3 class="header-p-white">{{ Auth::user()->username }}　さん</h3>
           <button class="accordion-title js-accordion-title">
           </button>
           <!--/.accordion-title-->
@@ -91,7 +91,7 @@
   </div>
   <div id="side-bar">
     <div id="confirm">
-      <p>{{ Auth::user()->username }}さん</p>
+      <p class="p-user-name">{{ Auth::user()->username }}さん</p>
       <div>
         <p>フォロー数</p>
         <p>{{ count(Auth::user()->followings ?? []) }}名</p>
