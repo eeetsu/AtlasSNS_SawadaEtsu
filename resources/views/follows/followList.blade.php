@@ -2,14 +2,14 @@
 
 @section('content')
 
-<div class="container">
+<div class="abc">
   <div class="follow-list">
     <div class="follow-icons"></div>
 
 
     <!-- フォローユーザーアイコン表示 -->
     <div class="follow-list-icon">
-        <h3>Folow List</h3>
+        <h3>Follow List</h3>
         <div class="follow-posts-icon">
             @foreach($follows as $follow)
                 @if($follow->id !== Auth::id())

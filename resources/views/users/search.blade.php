@@ -8,7 +8,7 @@
       <form action="/search" method="get" class="search">
           @csrf
           <input type="text" name="keyword" class="form" placeholder="ユーザー名" value="{{ $keyword ?? '' }}">
-          <button type="submit" class="btn btn-search"><img src="{{ asset('images/search.png') }}" width="32" height="32"></button>
+          <button type="submit" class="btn_btn-search"><img src="{{ asset('images/search.png') }}" width="32" height="32"></button>
       </form>
 
       <!-- 検索ワードが空でない場合のみ表示 -->

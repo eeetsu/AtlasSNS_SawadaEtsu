@@ -51,7 +51,7 @@
                                     @csrf
                                     <input type="hidden" name="_method" value="PUT">
                                     <textarea name="post" id="edited_post" maxlength="150">{{ $latestPost->post }}</textarea>
-                                    <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32" class="btn-primary"></button>
+                                    <button type="submit" class="btn_btn-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32" class="btn-primary"></button>
                                 </form>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                     <form method="POST" action="{{ route('posts.destroy', ['post_id' => $latestPost->id]) }}" class="line-second">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
                             <img class="normal-img" src="{{ asset('images/trash-h.png') }}" width="32" height="32">
                             <img class="hover-img" src="{{ asset('images/trash.png') }}" width="32" height="32">
                         </button>

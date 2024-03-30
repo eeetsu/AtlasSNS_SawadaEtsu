@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div class="container">
+<div class="abc">
   <div class="follower-list">
     <div class="follower-icons"></div>
 
       <!-- フォロワーユーザーアイコン表示 -->
       <div class="follower-list-icon">
-          <h3>Follower List</h3>
+          <div><h3>Follower List</h3></div>
           <div class="follower-posts-icon">
               @foreach(Auth::user()->followers as $follower)
                   @php
