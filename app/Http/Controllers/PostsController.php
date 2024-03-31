@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Follow;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostsController extends Controller
@@ -32,21 +34,36 @@ class PostsController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'post' => 'required|min:1|max:150',
-        ]);
-            $post = new Post();
-            $post->user_id = Auth::user()->id;
-            $post->post = $request->post;
+    $request->validate([
+        'post' => 'required|min:1|max:150',
+    ]);
 
+    $post = new Post();
+    $post->user_id = Auth::user()->id;
+    $post->post = $request->post;
 
-        if(request('image')){
-            $name=request()->file('images')->getClientOriginalName();
-            request()->file('images')->move('storage/images',$name);
-            $post->images=$name;
+    if ($request->hasFile('images')) {
+        $image = $request->file('images');
+        $name = time() . '_' . $image->getClientOriginalName();
+
+        // 画像をリサイズして保存
+        $resizedImage = Image::make($image)
+            ->fit(64)
+            ->encode('png', 80); // PNGフォーマットで保存
+        // 2KB未満になるように圧縮
+        $resizedImage->encode('png', 80);
+        // ファイルサイズが2KB未満になるようにする
+        while ($resizedImage->filesize() > 2048) {
+            $resizedImage->encode('png', 80);
         }
-         $post->save();
-        return redirect('/top');
+
+        Storage::put('public/images/' . $name, $resizedImage);
+
+        $post->images = $name;
+    }
+
+    $post->save();
+    return redirect('/top');
     }
     public function edit($post_id)
     {

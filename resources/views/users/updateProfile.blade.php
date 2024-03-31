@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="abc">
   <div class="update">
         <div class="update-form-icon">
           {!! Form::open(['url'=>'/profile/update','enctype'=>'multipart/form-data', 'method'=>'POST']) !!}
@@ -62,11 +62,11 @@
             <label for="password_confirmation">password confirmation</label>
           </div>
           <input type="password" name="password_confirmation" value="" class="update-block-form">
-        </div>
           <!-- バリデーションエラーメッセージを表示 -->
           @error('password_confirmation')
-            <span class="text-danger">{{ $message }}</span>
+          <span class="text-danger">{{ $message }}</span>
           @enderror
+        </div>
 
 
         <div class="update-block">
@@ -82,11 +82,11 @@
           @enderror
 
         <div class="update-block">
-          <!--アイコン画像アップロード-->
+         <!--アイコン画像アップロード-->
           <div class="update-label">
-            <label for="name">icon image</label>
+              <label for="name">icon image</label>
           </div>
-          <input type="file" name="images" accept="image/*">
+            <input type="file" name="images" accept="image/jpeg,image/png,image/gif" />
         </div>
           <!-- バリデーションエラーメッセージを表示 -->
           @error('images')
