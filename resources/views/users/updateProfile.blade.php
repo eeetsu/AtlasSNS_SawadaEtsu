@@ -86,7 +86,7 @@
           <div class="update-label">
             <label for="name">icon image</label>
           </div>
-          <input type="file" name="images">
+          <input type="file" name="images" accept="image/*">
         </div>
           <!-- バリデーションエラーメッセージを表示 -->
           @error('images')

@@ -41,7 +41,7 @@
             <div class="btn-primary-danger">
                 <table>
                     <!-- 編集ボタン -->
-                    <button class="btn btn-primary js-modal-open" post="{{ $latestPost->post }}" post_id="{{ $latestPost->id }}"><img src="{{ asset('images/edit.png') }}" width="32" height="32"></button>
+                    <button class="btn post-primary js-modal-open" post="{{ $latestPost->post }}" post_id="{{ $latestPost->id }}"><img src="{{ asset('images/edit.png') }}" width="32" height="32"></button>
 
                     <!-- モーダル -->
                     <div class="modal js-modal">
@@ -51,8 +51,8 @@
                                     @csrf
                                     <input type="hidden" name="_method" value="PUT">
                                     <textarea name="post" id="edited_post" maxlength="150">{{ $latestPost->post }}</textarea>
-                                    <button type="submit" class="btn_btn-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32" class="btn-primary"></button>
                                 </form>
+                                <img src="{{ asset('images/edit.png') }}" width="32" height="32" type="submit">
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                <div class="btn-primary-danger">
                 <table>
                     <!-- 編集ボタン -->
-                    <button class="btn btn-primary js-modal-open" post="{{ $latestPost->post }}" post_id="{{ $latestPost->id }}"><img src="{{ asset('images/edit.png') }}" width="32" height="32"></button>
+                    <button class="btn post-primary js-modal-open" post="{{ $latestPost->post }}" post_id="{{ $latestPost->id }}"><img src="{{ asset('images/edit.png') }}" width="32" height="32" class="post-primary"></button>
 
                     <!-- モーダル -->
                     <div class="modal js-modal">
@@ -121,9 +121,8 @@
                                     @csrf
                                     <input type="hidden" name="_method" value="PUT">
                                     <textarea name="post" id="edited_post" maxlength="150">{{ $latestPost->post }}</textarea>
-                                    <button type="submit" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32" class="btn-primary"></button>
+                                    <button type="submit" class="post-primary"><img src="{{ asset('images/edit.png') }}" width="32" height="32"></button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -132,7 +131,7 @@
                     <form method="POST" action="{{ route('posts.destroy', ['post_id' => $latestPost->id]) }}" class="line-second">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
                             <img class="normal-img" src="{{ asset('images/trash-h.png') }}" width="32" height="32">
                             <img class="hover-img" src="{{ asset('images/trash.png') }}" width="32" height="32">
                         </button>

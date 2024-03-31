@@ -35,9 +35,9 @@ class PostsController extends Controller
         $request->validate([
             'post' => 'required|min:1|max:150',
         ]);
-        $post = new Post();
-        $post->user_id = Auth::user()->id;
-        $post->post = $request->post;
+            $post = new Post();
+            $post->user_id = Auth::user()->id;
+            $post->post = $request->post;
 
 
         if(request('image')){

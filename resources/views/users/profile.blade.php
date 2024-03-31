@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="abc">
     <div class="line">
         <!-- アイコンユーザーアイコンの表示 -->
         <div>
