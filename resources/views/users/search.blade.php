@@ -22,7 +22,7 @@
         <div class="user-icons">
 
           <div class="user-icons-combination">
-            <img src="{{ asset('storage/images/' . $user->images) }}" alt="">
+            <img src="{{ asset('storage/images/' . $user->images) }}" alt="" width="64" height="64" style="border-radius: 50%">
             <span>{{ $user->username }}</span>
           </div>
 

@@ -57,7 +57,7 @@
           </button>
           <!--/.accordion-title-->
           @if(Auth::user()->images)
-            <img src="{{ asset('storage/images/' . Auth::user()->images) }}" class="accordion-img">
+            <img src="{{ asset('storage/images/' . Auth::user()->images) }}" class="accordion-img" width="64" height="64" style="border-radius: 50%">
           @else
             <img src="{{ asset('storage/images/' . Auth::user()->image) }}">
           @endif

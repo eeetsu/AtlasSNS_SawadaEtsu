@@ -18,7 +18,7 @@
                   @if ($latestPost)
                       <div class="post-item">
                           <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
-                              <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
+                              <img src="{{ asset('storage/images/' . $follower->images) }}" alt="" width="64" height="64" style="border-radius: 50%">
                           </a>
                       </div>
                   @endif
@@ -31,7 +31,7 @@
                   <div class="post-second">
                     <div class="post-content">
                       <a href="{{ route('follower.profile', ['user_id' => $follower->id]) }}" class="btn" enctype="multipart/form-data">
-                      <img src="{{ asset('storage/images/' . $follower->images) }}" alt="">
+                      <img src="{{ asset('storage/images/' . $follower->images) }}" alt="" width="64" height="64" style="border-radius: 50%">
                       </a>
                       <div class="post-info">
                           <p class="p-username-second">{{ $post->user->username }}</p>

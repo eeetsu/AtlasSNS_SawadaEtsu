@@ -9,9 +9,9 @@
             @csrf
             {{Form::hidden('id',Auth::user()->id)}}
             @if(Auth::user()->images)
-              <img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+              <img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="64" height="64" style="border-radius: 50%">
             @else
-              <img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+              <img src="{{ asset('storage/images/' . Auth::user()->image) }}" width="64" height="64" style="border-radius: 50%">
             @endif
         </div>
 

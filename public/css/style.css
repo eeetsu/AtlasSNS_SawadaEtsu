@@ -278,7 +278,6 @@ textarea {
 .follower-list-icon {
     display: flex;
     height: 100%;
-    flex: 0 0 80%;
     padding: 10px;
     margin: 10px;
     border-bottom: 5px solid #c0c0c0;
@@ -286,7 +285,7 @@ textarea {
 
 .follow-posts-icon,
 .follower-posts-icon {
-    display: flex;
+    display: ruby;
 }
 
 .follow-posts-icon a,
@@ -638,12 +637,10 @@ textarea {
 }
 
 .follower-posts-icon {
-    display: flex;
     flex-wrap: wrap;
 }
 
 .follow-posts-icon {
-    display: flex;
     flex-wrap: wrap;
 }
 

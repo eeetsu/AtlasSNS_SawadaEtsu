@@ -8,9 +8,9 @@
             @csrf
             <!-- ログインユーザーのユーザーアイコン表示 -->
             @if(Auth::user()->images)
-                <img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+                <img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="64" height="64" style="border-radius: 50%">
                 @else
-                <img src="{{ asset('storage/images/' . Auth::user()->image) }}">
+                <img src="{{ asset('storage/images/' . Auth::user()->image) }}" width="64" height="64" style="border-radius: 50%">
             @endif
         </div>
         <!-- ログインユーザーの投稿欄 -->
@@ -30,7 +30,7 @@
             @endphp
             <div class="user-post-second">
                 <div class="post-content">
-                    <img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+                    <img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="64" height="64" style="border-radius: 50%">
                     <div class="post-info">
                         <p>{{ $latestPost->user->username }}</p>
                         <p>{{ $latestPost->post }}</p>
@@ -82,7 +82,7 @@
             @foreach($follow->posts()->orderBy('created_at', 'desc')->get() as $post)
                 <div class="post-second">
                     <div class="post-content">
-                        <img src="{{ asset('storage/images/' . $follow->images) }}" >
+                        <img src="{{ asset('storage/images/' . $follow->images) }}" width="64" height="64" style="border-radius: 50%">
                         <div class="post-info">
                             <p class="p-username">{{ $post->user->username }}</p>
                             <p class="p-post">{{ $post->post }}</p>
@@ -100,7 +100,7 @@
             <div class="post-user">
                 <div>
                     <div class="post-content">
-                        <img src="{{ asset('storage/images/' . Auth::user()->images) }}">
+                        <img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="64" height="64" style="border-radius: 50%">
                         <div class="post-info">
                             <p class="p-username">{{ $post->user->username }}</p>
                             <p class="p-post">{{ $post->post }}</p>
