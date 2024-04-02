@@ -68,6 +68,7 @@
     </div>
     <!-- .accordion -->
   </div>
+  <!-- .accordion-box -->
 
   <div class="accordion-content">
     <nav>
